@@ -1,4 +1,4 @@
-# CT (Computer Tomography)
+# CT (Computed Tomography)
 ## History
 Found by Sir Godfrey Hounsfiel, Electrical Engineer. 
 
@@ -10,7 +10,9 @@ Multiple images in succession of a different layers of the body. Organs and tiss
 **Silhouette sign**: Edges of an object are seen if interfece is with a different density (if edge of between heart and lung is fuzzy, it might indicate pneumonia).
 
 ## Comparison to X-Ray
-Orthogonal views are needed to localize objects (e.g. coronal + lateral view). 
+-	In X-Rays, orthogonal views are needed to localize objects (e.g. coronal + lateral view). 
+-	CT-Scans have a higher resolution, due to multiple sensors. CT can differentiate between tissues that differ in radiographic density of 1% or less.
+-	CT-Scans can be projected to an arbitrary plane, creating any view of the subject.
 
 ## Density Metric
 Density is measured with the Hounsfield Unit (HU). Water = 0 HU, Air = -1000 HU. The higher the HU, and hence the density, the higher the brightness in the image.
