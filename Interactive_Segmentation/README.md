@@ -1,4 +1,4 @@
-# Interactive Segmentation
+# Interactive Segmentation - CRF
 
 ## Goal
 -	Convert image segmentation into a graph optimization using Fully-Connected Conditional Random Field
@@ -42,6 +42,15 @@
 	-	Does not require accurate contour tracing which needs lower concentration levels from the annotator
 -	Cons:
 	-	Not particulary suitable for blood vessel segmentation
+	-	Or any long and thin linear structures
+
+# Interactive Segmentation - DeepIGeoS
+
+## Method
+-	CNN model **p**roposes segmentation (P-Net)
+-	User adds **corrections**  to proposal and feeds both to R-Net (+ original image), which outputs the refined segmentation
+		-	Combination through geodesic distance transforms 
+-	The geodesic distance helps to better differentiate neighboring pixels with different appearances, and improves label consistency in homogeneous regions.
 
 
-
+# Interactive Segmentation - DeepCut
