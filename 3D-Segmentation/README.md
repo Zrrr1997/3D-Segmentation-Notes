@@ -3,6 +3,10 @@
 ## Goals
 -	Computer aided diagnosis
 	-	Efficiency and accuracy
+-	Applications
+	-	Tumor measurements
+	-	Surgery planning
+	-	Disease diagnosis
 
 ## Issues
 -	Medical images suffer from blur, noise, and low contrast (problem when using classical approaches)
@@ -22,6 +26,14 @@
 -	Pulmonary nodules
 -	Cardiac
 
+## Classification of Segmentation methods
+-	Manual
+-	Semi-automatic
+	-	Deep learning approaches usually require a lot of data (fully supervised)
+		-	Need manual or semi-automatic label generation
+-	Fully automatic
+	-	Typically only suitable when object of interest has a homogenous image intensity and is well distinguishable from other image regions
+	
 
 
 ## Supervised Learning
@@ -132,6 +144,7 @@
 			-	Reduces needed user interaction time
 		-	BIFSeg (similar to GrabCut)
 			-	User draws BBox and this region is given as an input to a segmentation model
+			-	GrabCut - Cons: limited to binary class segmentation and slow in 3D
 		-	GM Interacting
 			-	Updates the model w.r.t. user **text** input
 ## Semi-supervised 
