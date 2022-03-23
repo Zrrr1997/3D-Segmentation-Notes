@@ -9,3 +9,5 @@ A Survey](https://arxiv.org/pdf/2009.13120.pdf) (2021 Dec)
 [repo](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS)
 
 [CRF Tutorial](https://github.com/roym899/crf_segmentation_tutorial/blob/master/tutorial.pdf) - Good explanation of the *feature vector* of a pixel
+
+[Guide Me](https://openaccess.thecvf.com/content_cvpr_2018/papers/Rupprecht_Guide_Me_Interacting_CVPR_2018_paper.pdf) - Segmentation guided by user text input

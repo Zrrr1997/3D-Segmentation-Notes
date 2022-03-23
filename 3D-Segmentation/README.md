@@ -16,6 +16,8 @@
 -	Objects come in large range of scales
 	-	E.g., a tumor could be a different size, depending on the stage
 	-	Leads to a large class imbalance 
+-	Traditional CNNs have conv filters with large receptive fields and hence produce coarser outputs
+	-	Presence of max-pooling layers in CNNs further reduces chance of getting a **fine** segmentation output (challenge in segmentation as a whole - therefore specialized models listed below)
 
 ## Which parts are segmented?
 -	Liver-tumor
