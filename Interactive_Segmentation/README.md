@@ -63,7 +63,7 @@
 -	CRF-Net is applied to the output of the CNNs (probabilities of each pixel belonging to background or foreground)
 	-	CRF Net is extension of the CRF-RNN model
 	-	User refinement context is also integrated to the output of R-Net
--	Unary potential is set to the outputs of P- and R-Net
+-	Unary potential is set to the **(inverse)** outputs of P- and R-Net
 -	Sum of weighted Gaussians is substituted by a FCN (Pairwise-Net), (typically: Pairwise potential = compatibility * weighted kernels)
 -	The fully-connected CRF cannot be computed for all pixel pairs, when the pairwise potentials are not weighted Gaussians
 	-	DeepIGeoS uses patches with centers instead 
@@ -118,6 +118,7 @@
 -	CNNs also lack **smoothness contraints**, which can result in poor object delineation and small spurious regions
 -	However, CRFs are able to refine weak and coarse pixel-level label predictions to produce **sharp** boundaries and fine-grained segmentation
 
+**Note**: This paper has a very simple and precise explanation of the CRF mean-field approximation algorithm.
 
 ## Related Work
 -	Previous work [9] uses CRF simply as a post-processing step to a CNN output
@@ -125,7 +126,20 @@
 
 ## Method
 -	Formulate CRF with Gaussian pairwise potentials and mean-field approximation as RNNs
--	
+	-	RNN refines output of CNN and also passes back the differentials back during training
+-	Unary potentials are the **inverse likelihoods** of a pixel belonging to a label
+-	Q_i(l) is initialized as the softmax probability of pixel i to belong to label l
+-	**Message passing** is done by applying 2 Gaussian kernels, 1 Spatial and 1 Bilateral kernels
+-	**Weighted Filter Outputs** is done by a 1x1 convolution with M input channels (M = #Labels) and 1 output channel
+-	**Compatibility Transform** is also a 1x1 convlution with in- and output channels = L. This learns the compatibility function which is more flexible than the Potts model with fixed penalty
+-	Formulation as RNN
+	-	Each iteration is simply a stack of CNN layers. 
+	-	The original unary values from the segmentation model are fixed for all iterations
+	-	The output Q values are used as an input to the next Q values estimation
+	-	Around 10 iterations are enough for convergence (no vanishing or exploding gradients)
+		-	Vanilla RNN is enough, as opposed to LSTM
+-	Con: Not all parameters are trainbable due to the permutohedral lattice implementation
+	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
 
 
 
