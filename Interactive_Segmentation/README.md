@@ -44,7 +44,7 @@
 	-	Not particulary suitable for blood vessel segmentation
 	-	Or any long and thin linear structures
 
-# Interactive Segmentation - DeepIGeoS (2019)
+# Interactive Segmentation - DeepIGeoS (2017)
 
 ## Method
 -	CNN model **p**roposes segmentation (P-Net)
@@ -140,6 +140,48 @@
 		-	Vanilla RNN is enough, as opposed to LSTM
 -	Con: Not all parameters are trainbable due to the permutohedral lattice implementation
 	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
+
+
+# Interactive Segmentation - BIFSeg (2018) ---> extension of DeepIGeoS to work on unseen objects
+
+## Related Work
+-	They list DeepCut, DeepIGeoS, Deep Interactive Object Selection
+	-	One challenge when using CNNs is the requirement of large amounts of annotated images for training
+	-	CNNs also do not generalize well to unseen objects
+	-	Authors discourage using DeepMedic or HighRes3DNet as they have a high memory requirement
+	-	DeepIGeoS 
+		-	Good interactivity
+		-	Lack of adaptability to uneen image contexts
+## Method
+-	Bounding box to extract foreground from background
+-	Image-specific fine-tuning on **test** data
+	-	Either with or without the user interactions (scribbles)
+-	Low memory requirements for fast inference
+-	Con: Only binary segmentation
+-	Training:
+	-	GT bbox is used to crop the target objects and a network is trained on **binary segmentation**
+		-	Training on multiple different organs ---> not organ specific!
+		-	This way the CNN learns common features
+			-	Saliency, contrast, hyperintensity across different objects, which helps to generalize to unseen objects
+	-	Training dataset with multiple labels is converted to a binary classification dataset (with more sample as there could be multiple object instances in one image)
+	-	Training dataset is also pre-processed to only have cropped regions (+- 10 pixels / voxels margin)
+
+-	Testing:
+	-	User provides bounding box to crop a region
+	-	CNN outputs initial segmentation
+		-	User can additionally provide a scribble to correct
+			-	Scribbles can correspond to fore- or background for a correction
+			-	Loss function applied to scribbles is similar to GrabCut (2004, GMMs)
+				-	Solved in two steps:
+					-	First fix network parameters and update the label -> Results in a CRF solved by Graph Cuts 
+					-	Then fix label and update weights --> simple CE-Loss
+				-	Weight in CE-Loss is larger for scribbles, since they should have a higher impact (higher update)
+		-	CNN updates its weights on a single image and refines the result at the same time
+			-	Update only on the final classification layers (block 6)
+	-	CNN can be applied to unseen objects! **(zero-shot learning)**
+-	Architecture
+	-	They use the proposed P-Net model from DeepIGeoS
+
 
 
 
