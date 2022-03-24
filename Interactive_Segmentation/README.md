@@ -182,8 +182,40 @@
 -	Architecture
 	-	They use the proposed P-Net model from DeepIGeoS
 
+# Interactive Segmentation - Active Learning (2011) 
 
+## Method
+-	Evaluate a given segmentation by constructing an uncertainty field over the image
+	-	Based on: boundary, regional, smoothnes and entropy terms
+	-	The method highlight the plane of maximal uncertainty
+	-	User can guide the labeling of the data providing additional training data where the classifier has the least confidence
+	-	Compared to random region selection --> 64% faster convergence (good segmentation results)
+-	Active Learning Definition
+	-	Supervised machine learning, where instead of the user, a component of the algorithm called the **query strategy** is responsible for choosin the training data to be labeled.
+	-	Using active learning makes the training more efficient (faster convergence)
+-	Probabilistic algorithms are preferred to energy minimizing as they implicitly encode uncertainty (e.g. softmax predictions)
+-	Only works for **binary segmentation**
+-	Query strategies
+	-	Uncertainty sampling
+	-	Low confidence (same as above?)
 
+# Interactive Segmentation - GrabCut (2004) - Extension of GraphCut (2001)
+-	Graph-Cut = Texture (colour) + Edge (contrast) information for foreground-background segmentation
+-	Graph Cut
+	-	Formulated as an energy minimization, which should correspond to a good segmentation
+	-	Unary term: 
+		-	Entropy of fore- and background greyscale values
+		-	Encourages non-uniformity of the gray scale values assigned to the alphas {0, 1}
+	-	Binary term (smoothness term):
+		-	High energy if ---> pixels are different class + similar intensity + in close proximity
+	-	Graph Cut encourages coherence in regions of similar grey-levels.
+		-	No need to define it as a fully-connected graph - look only at 8-neighbors (direct neighbors)
+	-	Energy function can be optimized w.r.t. alphas, using standard minimum cut algorithm (GraphCut 2001)
+
+-	GrabCut 
+	-	Works with color data
+	-	Replaces the histograms of grey values with **GMMs**
+	-	One-shot minimum cut is replaced with an iterative procedure to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
 
 
 
