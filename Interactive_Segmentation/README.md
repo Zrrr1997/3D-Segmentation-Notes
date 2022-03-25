@@ -267,6 +267,30 @@
 
 # Interactive Segmentation - ScribbleSup (2016) 
 
+## Method
+-	Train CNN for semantic segmentation using scribbles as annotations
+	-	In this paper a FCN 
+-	Propose a graphical model which propagates scribble information to unmarked pixels 
+	-	Using spatial, appearance and semantic constraints
+-	In general - how to train a CNN not with pixel-wise labels, but with scribbles
+	-	Easier and faster to annotate datasets this way
+	-	Especially for ambiguous objects, sucha as water, sky, grass etc.
+	-	Inspired by interactive segmentation with scribbles
+-	Algorithm can be considered a weakly-supervised learning
+-	To propagate the scribble labels to the whole image they employ CRFs over **superpixels**
+-	The unary term are defined from the scribbles and the output of the FCN
+	-	Scribbles:
+		-	Zero cost to assign the label of the scribble if the pixel is part of a scribble
+		-	Infinite cost to assign a scribble pixel to another label
+		-	Uniform cost for all other labels, but only consider labels from the scribbles (subset of all classes) -> reduces the false positives
+	-	FCN:
+		-	Just the negative log likelihood of the FCN outputs
+-	Pairwise potential
+	-	Only for adjacent super-pixels
+	-	This time, the potential uses the color and edge histogram distances (similar to GrabCut (2004)
+-	Optimization has two variables - Y (labels) and FCN-parameters
+	-	Fix theta -> solve for Y ---> Simple graph cut solution
+	-	Then vice versa and repeat ---> Simple backpropagation
 
 
 
