@@ -217,7 +217,55 @@
 	-	Replaces the histograms of grey values with **GMMs**
 	-	One-shot minimum cut is replaced with an iterative procedure to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
 
+# Interactive Segmentation - DeepCut (2017) - Extension of GrabCut (2004)
 
+## Method
+-	Train NN from bounding box annotations
+-	Problem formulated as an energy minimization problem over a densely-connected CRF
+-	Advantage of using bounding boxes vs. scribbles/pixels
+	-	Allows to spatially contrain the problem
+-	Why not use a classical approach (e.g. GrabCut)?
+	-	We can assume that objects share common shape and appearance information which can be learned
+	-	Instead of direct image-by-image object segmentation - re-use the learned features
+	-	Particularly interesting for medical images, where an entire dataset is to be analysed for a specific organ or region
+		-	Large class similarity in terms of shape and appearance
+-	This paper has a good explanation of the history of improvements of GrabCut
+-	CNN + CRF is used to obtain the final segmentations
+-	NLL of the output probabiities constitute the unary term
+-	Binary term is simply taken from the Krähenbühl paper
+-	CNN in this paper is trained on **binary segmentation**
+-	Actually no interaction with the user??
+
+# Interactive Segmentation - GeoS (2007) - Predecessor of DeepIGeoS (2017)
+
+## Motivat
+-	Previous work (GraphCut (2001) and GrabCut (2004)) are computationally expensive and cannot be applied to high resolution images
+-	Geodesic distance resticts the possible space of solutions -> it leads to a better search efficiency
+-	Segmentation posterior is also found ---> uncertainty analysis
+-	Algorithm can be sped up even further through parallelisation (which was not feasible with graph cuts as easily)
+	-	Based on the raster scan from Toivanen (O(N))
+
+## Method
+-	Approximate energy minimization in a conditional random field
+-	Used for **binary segmentation**
+-	Parallel fitlering operator for efficient geodesic distance computation
+	-	Proposes spatially smooth, contrast-sensitive segmentations
+-	Lowest energy solution is found in linear time
+	-	With both Toivanen (Raster Scan) and Yatziv (Fast Marching Methods - FMM) algorithms
+		-	However, Yatziv's algorithms employs FMM, which accesses the image lacations far from each other in memory
+		-	Toivanen's technique accesses the image in contiguous blocks
+-	The geodesic filter acts on the energy unaries in the CRF
+	-	Large jumps in the geodesic distance correspond to stronger edges (due to the image gradient in the distance computation)
+-	Based on geodesic distance - dilation, erosion, closing and opening can be defined 
+	-	Theta parameters can be set to filter foreground and background noise speckles and should be set to the maximum size of those
+	-	Theta parameters, hence, regulate the **spatial smoothness** 
+			- 	larger theta yield smoother segmentation boundaries
+			- 	Smaller thetas are "locked" by the brightness structures
+-	Energy function can be formulated w.r.t. thetas - as they regulate the smoothness, they also regulate the energy
+	-	Weak unaries (high uncertainty of the classifier) lead to vastly different results when thetas are altered
+-	Search space for the theta parameters can be traversed linearly and in parallel
+
+# Interactive Segmentation - ScribbleSup (2016) 
 
 
 

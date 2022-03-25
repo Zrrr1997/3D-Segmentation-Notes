@@ -17,3 +17,5 @@ A Survey](https://arxiv.org/pdf/2009.13120.pdf) (2021 Dec)
 [CRF-RNN](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf) - How to transform a CRF into an RNN (2015)
 
 [Active Learning for Interactive 3D Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf) (2011) - First paper to do this
+
+[DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=YmgpM0zOczAAAAAA:zDh6dISzVls2GTRqiDByT52eYrfrc6KvUHvAQ4fzFtpOf3Yh7uXljqNGmIft9Ix8wO_sUq0y7Q)
