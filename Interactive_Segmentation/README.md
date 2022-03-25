@@ -340,4 +340,64 @@
 	-	The interactive method also allows **instance segmentation** when multiple intances of the same object are present
 	-	Interactive method segments unseen classes (zero-shot learning) and generalizes better
 
+# Interactive Segmentation - DeepLab (2016) - First CNN scores + CRF method (non-interactive)
+
+
+## Motivation
+-	Responses at the final layer of DCNNs are not sufficiently localized for accurate object segmentation.
+	-	Caused by the invariance properties, which make DCNNs good for high-level tasks.
+-	CNNs have a built-in invariance to local image transformations, which underpins their ability to learn hierarchical abstractions of data (Zeiler/Fergus 2014)
+-	However, in semantic segmentation, we want precise localization and are dependent on low-level features
+	-	Rather than abstraction of spatial details
+-	Challenges for DCNNs for semantic segmentation
+	-	Reduced feature resolution
+	-	Existence of objects at multiple scales
+	-	Reduced localization accuracy due to DCNN invariance
+
+
+## Method
+-	They show how to combine DCNNs with CRFs - cascade of two fairly well-established methods
+-	They propose using **atrous convolutions** (dilated convs) to capture features in different scales
+	-	Upsampling of the feature maps in last layers instead of max pooling
+	-	Powerful alternative to the deconvolutional layers
+	-	Larger field of view of filters without increasing the parameters
+-	They propose an atrous spatial pyramid to segment objects at different scales
+	-	Multiple parallel atrous convolutional layers with different sampling rates
+		-	Parallel branches share their parameters
+-	Pooling and Upsampling leads to the **checkerboard** pattern
+	-	Atrous convolutions leads to a smoother output
+-	Unary CRF potentials are set to negative-log-likelihoods of the DCNN predictions
+-	For the binary potentials
+	-	Potts model for the compatibility function
+	-	Bilateral and Spatial filter for the pairwise potentials
+-	Training
+	-	DCNN is trained first and fixed when training the CRF
+	-	DCNN unary terms are fixed during training of CRF
+		-	CRF "training" via mean-field-approximation iterations  
+		-	Hyperparameters are found by cross-validation on 100 images with a coarse-to-fine search
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
