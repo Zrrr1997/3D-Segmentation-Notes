@@ -5,6 +5,11 @@ A Survey](https://arxiv.org/pdf/2009.13120.pdf) (2021 Dec)
 [A brief introduction to weakly supervised learning](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)
 
 # Interactive Segmentation
+[(2004): “GrabCut” — Interactive Foreground Extraction using Iterated Graph Cuts](https://dl.acm.org/doi/pdf/10.1145/1015706.1015720?casa_token=B361ZlfabGgAAAAA:yho3D542s08qx0zQ-gTeoRuge6eXMqdomiUV75Eap1E5hmYV4fgFXVm1yqj5_y8Z5R83EV_5fXK23Q)
+
+[(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf)
+
+
 [DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) (2019 July)
 [repo](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS)
 

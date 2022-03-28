@@ -22,14 +22,14 @@
 	-	Only requires a **bounding-box** input interaction (or lasso)
 
 
-# Interactive Segmentation - GeoS (2007) - Predecessor of DeepIGeoS
+# GeoS (2007) - Predecessor of DeepIGeoS
 
 ## Motivation
 -	Previous work (GraphCut (2001) and GrabCut (2004)) are computationally expensive and cannot be applied to high resolution images
 -	Geodesic distance resticts the possible space of solutions -> it leads to a better search efficiency
 -	Segmentation posterior is also found ---> uncertainty analysis
 -	Algorithm can be sped up even further through parallelisation (which was not feasible with graph cuts as easily)
-	-	Based on the raster scan from Toivanen (O(N))
+	-	Based on the raster scan from Toivanen (O(N)) (1998(
 
 ## Method
 -	Approximate energy minimization in a conditional random field
@@ -42,11 +42,13 @@
 		-	Toivanen's technique accesses the image in contiguous blocks
 -	The geodesic filter acts on the energy unaries in the CRF
 	-	Large jumps in the geodesic distance correspond to stronger edges (due to the image gradient in the distance computation)
+	-	![](../images/geos_distance.png)
 -	Based on geodesic distance - dilation, erosion, closing and opening can be defined 
 	-	Theta parameters can be set to filter foreground and background noise speckles and should be set to the maximum size of those
 	-	Theta parameters, hence, regulate the **spatial smoothness** 
 			- 	larger theta yield smoother segmentation boundaries
 			- 	Smaller thetas are "locked" by the brightness structures
+![](../images/closing_distance_geos.png)
 -	Energy function can be formulated w.r.t. thetas - as they regulate the smoothness, they also regulate the energy
 	-	Weak unaries (high uncertainty of the classifier) lead to vastly different results when thetas are altered
 -	Search space for the theta parameters can be traversed linearly and in parallel
