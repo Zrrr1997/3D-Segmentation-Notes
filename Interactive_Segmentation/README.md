@@ -352,7 +352,7 @@
 
 
 
-# Simple CRF (2021)
+# Simple CRF + Geodesic Distance (2021)
 
 ## Goal
 -	Convert image segmentation into a graph optimization using Fully-Connected Conditional Random Field
