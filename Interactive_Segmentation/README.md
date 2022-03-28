@@ -103,7 +103,7 @@
 		-	RNN timesteps correspond to the iterations from the classical algrotithm - 10 are enough
 -	Con: Not all parameters are trainbable due to the permutohedral lattice implementation
 	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
--	![](../images/crf_rnn.png)
+-	![](../images/crf-rnn.png)
 
 # Interactive Segmentation - ScribbleSup (2016) 
 
