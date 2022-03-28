@@ -183,7 +183,7 @@
 	-	The interactive method also allows **instance segmentation** when multiple intances of the same object are present
 	-	Interactive method segments unseen classes (zero-shot learning) and generalizes better
 
-# Interactive Segmentation - DeepLab (2016) - First CNN scores + CRF method (non-interactive)
+# DeepLab (2016) - First CNN scores + CRF method (non-interactive)
 
 
 ## Motivation
@@ -213,6 +213,7 @@
 -	For the binary potentials
 	-	Potts model for the compatibility function
 	-	Bilateral and Spatial filter for the pairwise potentials
+-	![](../images/deeplab.png)
 -	Training
 	-	DCNN is trained first and fixed when training the CRF
 	-	DCNN unary terms are fixed during training of CRF
