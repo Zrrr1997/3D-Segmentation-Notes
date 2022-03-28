@@ -220,7 +220,7 @@
 		-	CRF "training" via mean-field-approximation iterations  
 		-	Hyperparameters are found by cross-validation on 100 images with a coarse-to-fine search
 
-# Interactive Segmentation - DeepCut (2017) - Extension of GrabCut (2004)
+# DeepCut (2017) - Extension of GrabCut (2004)
 
 ## Method
 -	Train NN from bounding box annotations
@@ -237,18 +237,18 @@
 -	NLL of the output probabiities constitute the unary term
 -	Binary term is simply taken from the Krähenbühl paper
 -	CNN in this paper is trained on **binary segmentation**
--	Actually no interaction with the user??
+-	![](../images/deepcut.png)
 
 
 
-
-# Interactive Segmentation - DeepIGeoS (2017)
+# DeepIGeoS (2017)
 
 ## Method
 -	CNN model **p**roposes segmentation (P-Net)
 -	User adds **corrections**  to proposal and feeds both to R-Net (+ original image), which outputs the refined segmentation
 		-	Combination through geodesic distance transforms 
 -	Scribbles labels the pixes as background and foreground (binary segmentation)
+-	![](../images/deepigeos_overview.png)
 -	The geodesic distance helps to better differentiate neighboring pixels with different appearances, and improves label consistency in homogeneous regions.
 -	Model runs in real-time and reduces number of user interactions, due to the already good features produced by the P- and R-Net
 -	Given an image the Geodesic Distance Transform computes the distance map with the same resolution
