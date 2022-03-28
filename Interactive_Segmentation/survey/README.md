@@ -77,7 +77,7 @@ knowledge provided by the initial user interaction.
 -	Unary term can be derived from
 	-	Intensity Histogram (GraphCut)
 	-	GMMs (GrabCut)
-	-	
+	-	K-means clustering to scribbles (Lazy Snapping)
 -	
 
 

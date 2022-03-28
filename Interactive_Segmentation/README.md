@@ -304,6 +304,19 @@
 	-	DeepIGeoS uses patches with centers instead 
 -	Cons: Requires 100k training samples for the **PairWise-Net**
 
+# LooseCut (2017) - Extension of GrabCut
+
+## Method
+-	Previous models require a very tight bbox around the object of interest
+-	LooseCut proposes how to tackle this with loose bounding boxes
+-	New Markov Random Fields model
+	-	Label consistency term to the GrabCut energy. Similar labels to similar-appearance pixels (even non-adjacent)
+		-	Image pixels are first clustered using a superpixel algorithm that preserves both feature and spatial consistency
+		-	Each cluster is assigned a label. The label consistency energy constitutes the number of pixels which differ in label from their cluster pixel
+	-	Global Similarity Constraint - Explicitly emphasize appearance difference between Fg and Bg models
+		-	Similarity between foreground and background Gaussian components is the reciprocal of the minimum distance between their means
+		-	The similarity term sums up all these similiarities 
+			-	The aim is: the closes background component should be as dissimiliar as possible to any foreground component
 
 # Guide Me (2018)
 

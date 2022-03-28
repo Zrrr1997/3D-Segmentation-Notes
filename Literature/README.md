@@ -22,6 +22,8 @@
 
 [(2016): DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://ieeexplore.ieee.org/iel7/34/8306529/07913730.pdf?casa_token=fdkNMc_wK3YAAAAA:_he6kDPbeCglP1MF8gbqT6d5X1-DjwaquDx0jKh4o_eJr-GsgcvoKpUguxoHu0u4csrshEKE0w)
 
+[(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1)
+
 [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw)
 
 [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) (2019 July)
