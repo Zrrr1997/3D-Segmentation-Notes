@@ -1,5 +1,7 @@
 # Interactive Segmentation
 
+
+
 # GrabCut (2004) - Extension of GraphCut (2001)
 -	Graph-Cut = Texture (colour) + Edge (contrast) information for foreground-background segmentation
 -	Graph Cut
@@ -20,6 +22,35 @@
 	-	Replaces the histograms of grey values with **GMMs**
 	-	One-shot minimum cut is replaced with an **iterative procedure** to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
 	-	Only requires a **bounding-box** input interaction (or lasso)
+# Lazy Snapping (2005)
+
+
+## Related Work
+-	They list related work as boundary- and region-based
+	-	Boundary - cut out the foreground by user input surrounding curve which evolves iteratively
+		-	Cons: Requires concentration and is error-prone
+	-	Region 
+		-	Cons: Low-contrast regions and shadows require more user-inputs
+
+## Method
+-	Uses scribbles!
+-	Combines graph cut with pre-computed over-segmentation
+-	Two steps:
+	-	Quick object marking step
+		-	Additionally + over-segmentation
+	-	Simple boundary editing step
+		-	Image cutout is formulated as a graph cut in both steps
+-	Unary terms are computed using K-means clustering of the foreground and background scribbles
+	-	Pixels with a high minimum distance to the foreground clusters are given a high energy when assigned x=1 
+-	![](../images/lazysnapping_unary.png)
+-	Pairwise term just compares the colour distance of adjacent pixels 
+	-	High penalty when similar adjacent nodes are assigned different labels
+-	To improve efficiency - the watershed (1991) algorithm is used as a **pre-segmentation**
+	-	Watershed locates boundaries well and preserves small differences inside each small region
+	-	Instead of using pixels as nodes, use watershed regions
+	-	Color is aggregated as the mean color for all pixels in the regions for the unary term
+
+
 
 
 # GeoS (2007) - Predecessor of DeepIGeoS
@@ -69,6 +100,12 @@
 -	Query strategies
 	-	Uncertainty sampling
 	-	Low confidence (same as above?)
+
+
+		-	
+
+
+
 
 # CRF-RNN (2015)
 

@@ -4,7 +4,11 @@
 [A brief introduction to weakly supervised learning](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)
 
 # Interactive Segmentation
+[(1998): Interactive Segmentation with Intelligent Scissors](https://d1wqtxts1xzle7.cloudfront.net/70764853/gmip.1998.048020210930-31907-ipyamv-with-cover-page-v2.pdf?Expires=1648471802&Signature=HFrf503Ivro9dCbeuF56iNxMi2uE7~kPM-2TTWAlPB9JGQR4ryJVhnSReGM~3SEWIunFzh4z~6y2sVOsEOkYD34rcLnIq6aBN8bHcIkWeCVTJB-~cH1H9Jcr9GQ5rCfM7m9RTUIz~e4yDN0rh71ABSFzZvTzJNzp5CTUt~ZBEft91G58y5f2RVln6QRWJywuFiYQJA~PvLvYzldT6CK98pdlvPZyxSOnUnmMqNxr5QX3tSTFEa3WoFbajyj0-liIuT8og8CpWaDEBPfQOnml7SkQxmJx1KTqm5J5V4etHPTUBI5VqWnoJ0PXMpdZUThVfBBy9tQlOtrymwiofuGilA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
+
 [(2004): “GrabCut” — Interactive Foreground Extraction using Iterated Graph Cuts](https://dl.acm.org/doi/pdf/10.1145/1015706.1015720?casa_token=B361ZlfabGgAAAAA:yho3D542s08qx0zQ-gTeoRuge6eXMqdomiUV75Eap1E5hmYV4fgFXVm1yqj5_y8Z5R83EV_5fXK23Q)
+
+[(2005): Lazy Snapping](https://dl.acm.org/doi/pdf/10.1145/1015706.1015719?casa_token=D6un7PlrIQYAAAAA:NobQ6GhWdf7CAdwalTmBPT1hmF7S1XFnbqf78oXtuPocpIizL188bhTV2QZBbMOXbBcD1pURWahBYQ)
 
 [(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf)
 
