@@ -1,9 +1,12 @@
-# Interactive Segmentation - GrabCut (2004) - Extension of GraphCut (2001)
+# Interactive Segmentation
+
+# GrabCut (2004) - Extension of GraphCut (2001)
 -	Graph-Cut = Texture (colour) + Edge (contrast) information for foreground-background segmentation
 -	Graph Cut
 	-	Formulated as an energy minimization, which should correspond to a good segmentation
 	-	Unary term: 
-		-	Entropy of fore- and background greyscale values
+		-	Entropy of fore- and background greyscale values (histograms)
+		-	![](../images/unary_grabcut.png)
 		-	Encourages non-uniformity of the gray scale values assigned to the alphas {0, 1}
 	-	Binary term (smoothness term):
 		-	High energy if ---> pixels are different class + similar intensity + in close proximity
