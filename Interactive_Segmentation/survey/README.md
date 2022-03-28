@@ -23,4 +23,4 @@
 			-	Pixel-wise
 			-	Superpixel-wise
 			-	Hybrid
--	![](../../images/user-input.png)
+-	![](../../images/user-inputs.png)
