@@ -48,7 +48,7 @@
 	-	Theta parameters, hence, regulate the **spatial smoothness** 
 			- 	larger theta yield smoother segmentation boundaries
 			- 	Smaller thetas are "locked" by the brightness structures
-![](../images/closing_distance_geos.png)
+-	![](../images/closing_distance_geos.png)
 -	Energy function can be formulated w.r.t. thetas - as they regulate the smoothness, they also regulate the energy
 	-	Weak unaries (high uncertainty of the classifier) lead to vastly different results when thetas are altered
 -	Search space for the theta parameters can be traversed linearly and in parallel
