@@ -53,12 +53,12 @@
 	-	Weak unaries (high uncertainty of the classifier) lead to vastly different results when thetas are altered
 -	Search space for the theta parameters can be traversed linearly and in parallel
 
-# Interactive Segmentation - Active Learning (2011) 
+# Active Learning (2011) 
 
 ## Method
 -	Evaluate a given segmentation by constructing an uncertainty field over the image
 	-	Based on: boundary, regional, smoothnes and entropy terms
-	-	The method highlight the plane of maximal uncertainty
+	-	The method highlights the plane of maximal uncertainty
 	-	User can guide the labeling of the data providing additional training data where the classifier has the least confidence
 	-	Compared to random region selection --> 64% faster convergence (good segmentation results)
 -	Active Learning Definition
@@ -70,7 +70,7 @@
 	-	Uncertainty sampling
 	-	Low confidence (same as above?)
 
-# Interactive Segmentation - CRF-RNN (2015)
+# CRF-RNN (2015)
 
 ## Motivation 
 -	Deep learning techniques alone have a limited capacity to delineate visual objects (exact position and border in the image)
@@ -83,7 +83,7 @@
 **Note**: This paper has a very simple and precise explanation of the CRF mean-field approximation algorithm.
 
 ## Related Work
--	Previous work [9] uses CRF simply as a post-processing step to a CNN output
+-	Previous work (DeepLab) uses CRF simply as a post-processing step to a CNN output
 	-	Con: CNN cannot adjust its weight to the CRF (no updates, no knowledge transfer)
 
 ## Method
@@ -93,15 +93,17 @@
 -	Q_i(l) is initialized as the softmax probability of pixel i to belong to label l
 -	**Message passing** is done by applying 2 Gaussian kernels, 1 Spatial and 1 Bilateral kernels
 -	**Weighted Filter Outputs** is done by a 1x1 convolution with M input channels (M = #Labels) and 1 output channel
--	**Compatibility Transform** is also a 1x1 convlution with in- and output channels = L. This learns the compatibility function which is more flexible than the Potts model with fixed penalty
+-	**Compatibility Transform** is also a 1x1 convolution with in- and output channels = L. This learns the compatibility function which is more flexible than the Potts model with fixed penalty
 -	Formulation as RNN
 	-	Each iteration is simply a stack of CNN layers. 
 	-	The original unary values from the segmentation model are fixed for all iterations
 	-	The output Q values are used as an input to the next Q values estimation
 	-	Around 10 iterations are enough for convergence (no vanishing or exploding gradients)
 		-	Vanilla RNN is enough, as opposed to LSTM
+		-	RNN timesteps correspond to the iterations from the classical algrotithm - 10 are enough
 -	Con: Not all parameters are trainbable due to the permutohedral lattice implementation
 	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
+-	![](../images/crf_rnn.png)
 
 # Interactive Segmentation - ScribbleSup (2016) 
 
