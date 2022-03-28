@@ -105,7 +105,7 @@
 	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
 -	![](../images/crf-rnn.png)
 
-# Interactive Segmentation - ScribbleSup (2016) 
+# ScribbleSup (2016) 
 
 ## Method
 -	Train CNN for semantic segmentation using scribbles as annotations
@@ -127,10 +127,11 @@
 		-	Just the negative log likelihood of the FCN outputs
 -	Pairwise potential
 	-	Only for adjacent super-pixels
-	-	This time, the potential uses the color and edge histogram distances (similar to GrabCut (2004)
+	-	This time, the potential uses the color and edge histogram distances (similar to GrabCut (2004))
 -	Optimization has two variables - Y (labels) and FCN-parameters
 	-	Fix theta -> solve for Y ---> Simple graph cut solution
 	-	Then vice versa and repeat ---> Simple backpropagation
+-	![](../images/scribblesup.png)
 
 # Interactive Segmentation - Deep Interactive Object Selection (2016) - first deep learning method for interactive object segmentation
 
