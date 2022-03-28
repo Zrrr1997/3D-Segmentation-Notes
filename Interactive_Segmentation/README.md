@@ -268,7 +268,7 @@
 -	Cons: Requires 100k training samples for the **PairWise-Net**
 
 
-# Interactive Segmentation - Guide Me (2018)
+# Guide Me (2018)
 
 ## Method
 -	Guide a visual-learning CNN with user text input **online** *(also mouse clicks)*
@@ -288,6 +288,7 @@
 -	Guiding block adjusts activation maps of the CNN
 	-	Guiding vector multiplies each channel of the CNN bottleneck feature tensor
 	-	And two separate guiding vectors for the width and height
+-	![](../images/guide_me.png)
 ## Training procedure
 -	Pre-trained semantic segmentation model (e.g. FCN) outputs prediction
 -	Hint generator takes prediction + GT and generates a hint
@@ -308,7 +309,7 @@
 
 
 
-# Interactive Segmentation - BIFSeg (2018) ---> extension of DeepIGeoS to work on unseen objects
+# BIFSeg (2018) ---> extension of DeepIGeoS for unseen objects
 
 ## Related Work
 -	They list DeepCut, DeepIGeoS, Deep Interactive Object Selection
@@ -347,10 +348,11 @@
 	-	CNN can be applied to unseen objects! **(zero-shot learning)**
 -	Architecture
 	-	They use the proposed P-Net model from DeepIGeoS
+-	![](../images/bifseg.png)
 
 
 
-# Interactive Segmentation - CRF (2021)
+# Simple CRF (2021)
 
 ## Goal
 -	Convert image segmentation into a graph optimization using Fully-Connected Conditional Random Field
@@ -395,7 +397,7 @@
 -	Cons:
 	-	Not particulary suitable for blood vessel segmentation
 	-	Or any long and thin linear structures
-
+-	![](../images/crf-geodesic.png)
 
 
 
