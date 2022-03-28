@@ -10,6 +10,7 @@
 		-	Encourages non-uniformity of the gray scale values assigned to the alphas {0, 1}
 	-	Binary term (smoothness term):
 		-	High energy if ---> pixels are different class + similar intensity + in close proximity
+		-	![](../images/binary_grabcut.png)
 	-	Graph Cut encourages coherence in regions of similar grey-levels.
 		-	No need to define it as a fully-connected graph - look only at 8-neighbors (direct neighbors)
 	-	Energy function can be optimized w.r.t. alphas, using standard minimum cut algorithm (GraphCut 2001)
@@ -17,7 +18,8 @@
 -	GrabCut 
 	-	Works with color data
 	-	Replaces the histograms of grey values with **GMMs**
-	-	One-shot minimum cut is replaced with an iterative procedure to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
+	-	One-shot minimum cut is replaced with an **iterative procedure** to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
+	-	Only requires a **bounding-box** input interaction (or lasso)
 
 
 # Interactive Segmentation - GeoS (2007) - Predecessor of DeepIGeoS
