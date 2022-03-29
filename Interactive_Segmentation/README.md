@@ -170,6 +170,22 @@
 	-	Then vice versa and repeat ---> Simple backpropagation
 -	![](../images/scribblesup.png)
 
+# ITK-Snap
+
+## Method
+-	Interactive tool for semi-automatic segmentation of multi-modality biomedical images
+-	Focuses on **multi-modal** imaging, which uses all information simultaneously
+	-	Modalities here are the multiple MRI contrasts
+-	**Random Forsts** trained by several brushstrokes with **active contour** segmentation
+	-	Based on texture, location and intensity features
+-	User interaction for labeling though polygon and paintbrush (scribble) tool
+-	**Stage 1**: A feature vector is formed for each labeled voxel by the user
+	-	Intensity (appearance), intensities of neighbouring voxels (texture), and spatial coordinates (location)
+	-	A classifier is trained on these features and then applied to the whole image to produce a (posterior) probability map
+	-	The sum over all modalities is built to compute the speed image P(x) - P(not(x))
+-	**Stage 2**: Active contours guided by speed function and user seeds
+	-	
+
 # Deep Interactive Object Selection (2016)
 ## Note: First deep learning method for interactive object segmentation
 

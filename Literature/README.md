@@ -16,6 +16,8 @@
 
 [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
 
+[(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA)
+
 [(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf)
 
 [(2016): Deep Interactive Object Selection](https://openaccess.thecvf.com/content_cvpr_2016/papers/Xu_Deep_Interactive_Object_CVPR_2016_paper.pdf)
