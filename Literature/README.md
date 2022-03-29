@@ -26,12 +26,14 @@
 
 [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw)
 
-[(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) (2019 July)
+[(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 
 [repo](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS)
 
 [(2018): Guide Me: Interacting with Deep Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Rupprecht_Guide_Me_Interacting_CVPR_2018_paper.pdf) 
 
-[(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) (2018)
+[(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) 
+
+[(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
 
 
 # Repos

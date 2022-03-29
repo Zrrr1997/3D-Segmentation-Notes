@@ -402,8 +402,33 @@
 -	![](../images/bifseg.png)
 
 
+# DEXTR (2018)
+-	![](../images/dextr.png)
+##  Method
+-	Uses extreme points (left, right, top bottom) and creates a heatmap which is concatenated to the RGB input of the segmentation model
+-	During inference, the user can input these points manually for known objects
+-	During training
+	-	The image is cropped with the implicit bbox from the extreme points
+	-	The gaussian map is concatenated to the RGB image and the network does a forward pass
+	-	The ResNet-101 backbone is adopted, but the max pooling and FC layers are replaced with atrous convolutions
+	-	Last layer is replaced with Pyramid Scene Parsing Module to aggregate global context
+-	To simulate interactive segmentation
+	-	They train a model, where each image has 4 labeled extreme points
+	-	If the classification IoU lower than 0.8, they label a 5th point and use it again during training 
+-	Network inference for a single object takes only 80ms (fully interactive)
+-	Binary classification (Fg/Bg)
+## Related Work
+-	[25] has already done this, but with GrabCut, not a DNN
 
-# Simple CRF + Geodesic Distance (2021)
+## Results
+-	They show that clicking is better than bounding box annotations on PASCAL, COCO and Grabcut
+
+
+
+
+
+# Simple CRF + Geodesic Distance (2022)
+- Paper claims it is the first fully-connected CRF for interactive medical image segmentation. 
 
 ## Goal
 -	Convert image segmentation into a graph optimization using Fully-Connected Conditional Random Field

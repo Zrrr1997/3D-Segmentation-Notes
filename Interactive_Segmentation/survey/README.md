@@ -1,4 +1,4 @@
-# Survey (2020)
+# Survey TODO  (2020)
 
 -	Interactive Segmentation: 
 	-	The task of extracting an image region or object of interest from the background using **prior knowledge** provided by user interaction.
@@ -78,7 +78,12 @@ knowledge provided by the initial user interaction.
 	-	Intensity Histogram (GraphCut)
 	-	GMMs (GrabCut)
 	-	K-means clustering to scribbles (Lazy Snapping)
--	
+-	Graph Cuts exhibit a "shrinking bias" [29, 57]
+
+
+## DL Based Methods
+-	Several methods cannot generalize to unseen objects
+-	Large data makes the applications of such models questionable [33]
 
 
 
