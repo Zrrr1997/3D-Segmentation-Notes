@@ -184,7 +184,7 @@
 	-	A classifier is trained on these features and then applied to the whole image to produce a (posterior) probability map
 	-	The sum over all modalities is built to compute the speed image P(x) - P(not(x))
 -	**Stage 2**: Active contours guided by speed function and user seeds
-	-	
+
 
 # Deep Interactive Object Selection (2016)
 ## Note: First deep learning method for interactive object segmentation
@@ -292,7 +292,28 @@
 -	CNN in this paper is trained on **binary segmentation**
 -	![](../images/deepcut.png)
 
+# PolygonRNN (2017) 
 
+## Method
+-	Instead of predicting pixelwise labels, predict a polygon surrounding the object-of-interest
+-	Input: Image crop
+-	Output: Sequentially produce vertices
+	-	Annotator can interfere at any time to correct the polygon
+-	**Assumption**: Ground-truth bounding boxes are given
+	-	Training data consists of cropped objects
+	-	The CNN extracts a feature map which is fed to an RNN
+	-	The RNN predicts a vertex, one at a time
+		-	Input to the RNN is the feature map + the first, n-1, and n-2^th vertice maps
+		-	Authors claim that the previous two vertices help the RNN follow a particular orientation
+		-	The first vertex helpts the RNN to decide when to close the polygon cycle
+-	![](../images/polygon-rnn.png)
+-	CNN backbone is VGG-16
+	-	Last FC layers and pool5 are removed
+	-	Skip connections from low and high-level layers are concatenated to have multi-level features (edges, corners + semantic information)
+-	RNN is a Convolutional LSTM model
+	-	Conserves the spatial infromation received from the CNN
+	-	Each vertex is outputed as a one-hot-encoding for a position on a DxD grid
+	-	
 
 # DeepIGeoS (2017)
 
@@ -334,6 +355,30 @@
 		-	The similarity term sums up all these similiarities 
 			-	The aim is: the closes background component should be as dissimiliar as possible to any foreground component
 -	![](../images/loosecut.png)
+
+
+# PolygonRNN++ (2018) - extension of PolygonRNN 
+
+## Method
+-	New CNN backbone
+	-	Based on Resnet50 with atrous convolutions 
+	-	Skip features are computed with the lower-level features
+-	Use Reinforcement Learning to train the model
+	-	RNN is viewed as a sequential decison making agent
+	-	Reward is the IoU between the mask enclosed by the generated polygon and the GT mask
+	-	Use the REINFORCE trick to compute the gradient over the expected (negative) reward
+-	Increase output resolution of the polygon with a GNN (Graph NN)
+	-	From 28x28 to 112x112
+	-	GCN takes the predicted vertices and builds an input graph
+	-	Nodes in the center of each edge are added and a message-passing framework with a GRU cell is trained
+	-	Targets of the GNN are the relative displacements of each RNN-predicted vertex w.r.t. GT vertices
+-	Model performs quite well on **cross-domain** tasks
+-	Authors argue that the RNN incorporates the learning of a **shape prior** - helps find boundaries in shadows, low saturated areas, noise etc.
+-	RNN is redisigned to incorporate visual attention at each time step
+-	Separate evaluation network 
+	-	Input: Skip Features + Predicted Polygon
+	-	Output: IoU with GT (tries to predict the performance)
+-	![](../images/polygon-rnn++.png)
 
 # Guide Me (2018)
 

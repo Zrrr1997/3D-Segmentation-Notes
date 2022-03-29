@@ -28,6 +28,10 @@
 
 [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw)
 
+[(2017): Annotating Object Instances with a Polygon-RNN](https://openaccess.thecvf.com/content_cvpr_2017/papers/Castrejon_Annotating_Object_Instances_CVPR_2017_paper.pdf)
+
+[(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf)
+
 [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 
 [repo](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS)
 
