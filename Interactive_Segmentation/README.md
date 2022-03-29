@@ -317,6 +317,7 @@
 		-	Similarity between foreground and background Gaussian components is the reciprocal of the minimum distance between their means
 		-	The similarity term sums up all these similiarities 
 			-	The aim is: the closes background component should be as dissimiliar as possible to any foreground component
+-	![](../images/loosecut.png)
 
 # Guide Me (2018)
 
