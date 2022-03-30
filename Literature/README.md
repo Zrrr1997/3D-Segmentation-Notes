@@ -10,6 +10,8 @@
 
 [(2005): Lazy Snapping](https://dl.acm.org/doi/pdf/10.1145/1015706.1015719?casa_token=D6un7PlrIQYAAAAA:NobQ6GhWdf7CAdwalTmBPT1hmF7S1XFnbqf78oXtuPocpIizL188bhTV2QZBbMOXbBcD1pURWahBYQ)
 
+[(2005): “GrowCut” - Interactive Multi-Label N-D Image Segmentation By Cellular Automata](https://www.graphicon.ru/html/2005/proceedings/papers/VezhntvetsKonushin.pdf)
+
 [(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf)
 
 [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf)

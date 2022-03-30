@@ -22,8 +22,8 @@
 	-	Replaces the histograms of grey values with **GMMs**
 	-	One-shot minimum cut is replaced with an **iterative procedure** to update the GMM parameters, but also use Min-Cut/Max-Flow to estimate the segmentation in each iteration
 	-	Only requires a **bounding-box** input interaction (or lasso)
-# Lazy Snapping (2005)
 
+# Lazy Snapping (2005)
 
 ## Related Work
 -	They list related work as boundary- and region-based
@@ -50,8 +50,35 @@
 	-	Instead of using pixels as nodes, use watershed regions
 	-	Color is aggregated as the mean color for all pixels in the regions for the unary term
 
+# GrowCut (2005)
 
+## Related Work
+-	Region Growing algorithms might have a problem with leaking out of the object
+	-	They also only work for binary segmentation
+-	Graph-Cut based are not easily extended to multi-label tasks
+	-	They are also not really flexible/tunable - only the graph weighting and cost function coefficients could be altered
+-	Authors claim that random walker is the best performing method for medical segmentation
+	-	Alongside graph cut, but random walker works with multi-label setups
 
+## Method
+-	Multi-label segmentation
+-	Scribble-based 
+-	Uses Cellular Automation
+	-	Iterative process, user can guide the algorithm **during** the segmentation
+-	Pixel labeling acts as a process of growth of K-types of bacteria
+	-	Bacteria start to spread from the seed pixels and try to occupy all the image
+	-	If the difference in color is small and the attacking cell's strength is large enough, the attacked cell takes the same label and strength of the attacking cell
+-	The smoothness of the boundary can be achieved by prohibiting a cell to attack if there are too many different labels to it
+-	A user can add a brush stroke at any time during the automata evolution process
+	-	This changes the states in the cell automata
+-	The brush strokes can also consider the maginitude of the certainty
+	-	"This region is "maybe" foreground"
+	-	This makes the process more tolerable to inaccurate paint strokes
+		-	E.g. boundaries of objects like flowers or plant leaves
+-	Initial strength of the cells is set by the user's certainty of the brush strokes
+
+## Results
+-	Comparison to Graph Cuts, Grab Cut and Random Walker
 
 # GeoS (2007) - Predecessor of DeepIGeoS
 
