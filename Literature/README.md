@@ -45,6 +45,8 @@
 
 [(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
 
+[(2022): An Efficient Interactive Multi-label Segmentation Tool for 2D and 3D Medical Images using Fully Connected Conditional Random Field](https://www.sciencedirect.com/science/article/abs/pii/S0169260721006088?casa_token=XAsUoRmNlucAAAAA:qkbVKoptJDfiJM6U8_uUffEiOR_MRNeFyT7jBZ7HgIaTlPDIMxUmxT47WFUUrTRWIC3goEiQmAE)
+
 
 # Repos
 [CRF Tutorial](https://github.com/roym899/crf_segmentation_tutorial/blob/master/tutorial.pdf) - Good explanation of the *feature vector* of a pixel
