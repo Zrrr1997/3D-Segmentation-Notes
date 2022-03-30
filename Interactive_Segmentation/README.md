@@ -1,5 +1,29 @@
 # Interactive Segmentation
 
+# GraphCut (2001) - seminal paper
+
+## Related Work
+-	Snakes, deformable templates, shortest path, ratio regions only work on 2D images
+	-	Intelligent scissors and Live wire need very precise user interactions
+-	Region growing, split and merge methods do not have cost functions
+	-	Since the properties of what a "boundary" is are not optimized - leaking in blurry boundaries can be observed
+-	Only an approximate solution - region competition, level set methods, normalized cuts
+-	
+
+## Method
+-	Binary segmentation (Foreground-Background)
+-	Hard constraints added by user
+	-	Indicated Pixels = Seeds
+-	Soft constraints regarding boundary and region properties
+	-	Solution is find by min-cut/max-flow algorithm
+-	Method can be applied to 3D images as well
+-	Assume some pixels are marked as internal, and some as external to the object
+-	![](../images/graphcut.png)
+-	The boundary term defines the neighbouring edge weights
+-	The regional terms defines the weight of the edges to the sink/source terminals
+-	Regional terms (unary) is the negative log-likelihood, given the histogram of scribbles
+-	Boundary terms (binary) are the pixel-intensity + spatial distance Gaussian Kernel
+	-	Penalty when pixel intensity of neighbours with different labels is smaller than sigma
 
 
 # GrabCut (2004) - Extension of GraphCut (2001)
@@ -61,6 +85,7 @@
 	-	Alongside graph cut, but random walker works with multi-label setups
 
 ## Method
+-	![](../images/growcut.png)
 -	Multi-label segmentation
 -	Scribble-based 
 -	Uses Cellular Automation
@@ -531,6 +556,7 @@
 	-	Area painting
 	-	ITK-Snap
 	-	3D-Slicer
+		-	Con of ITK-Snap and 3D-Slicer is the tremendous time for annotation
 
 -	Semi-automatic
 	-	Allow user interaction to improve labels
@@ -541,7 +567,8 @@
 	-	Contour-based
 	-	**Scribble-based**
 	-	Bbox-based
-
+-	Comment of Graph Cut methods
+	-	GC and GrabCut work well, but only for binary segmentation and are slow for 3D
 -	Comment on CNN approaches
 	-	The main drawback of these DCNN-based methods is the requirement of a training process using either weakly or fully labeled data.
 

@@ -1,0 +1,27 @@
+# Survey on Semi-Supervised Learning (2018)
+-	Three types of weakly supervised learning
+	-	Incomplete
+		-	Only a (usually small) subset of training data is given with labels, while the other data remain unlabeled.
+		-	Abundant unlabeled data are available
+			-	Techniques to combat this
+				-	Active learning
+					-	Assume there is an oracle which generates GT-labels for queried samples
+					-	Criteria:
+						-	Informativeness: how well an unlabeled instance helps reduce the uncertainty
+							-	Uncertainty sampling: Sample unlabeled sample with largest uncertainty of the classifier
+							-	Query-by-committee: Multiple learners -> sample the instance on which the learners disagree the most
+							-	Con of informativeness: Unstable when classifiers have been trained on a very small dataset
+						-	Representativeness: How well an instance helps represent the structure of input patterns
+							-	Usually use clustering to explore structure
+							-	Con of representativeness: Heavily depends on the clustering resuls dominated by unlabeled data
+				-	Semi-supervised learning
+					-	Automatically explore unlabeled data without human intervention
+					-	Transductive learning (type of semi-sup) assumes test data can also be seen (without labels, though)
+					-	Cluster assumption
+						-	Assumes the data has inherent cluster structure - instances falling in the same cluster have the same class
+					-	Manifold assumption
+						-	Assumes the data lies on a manifold - nearby instances have similar predictions
+	-	Inexact
+		-	Only coarse-grained labels are given
+	-	Inaccurate
+		-	Annotations are not the ground-truth
