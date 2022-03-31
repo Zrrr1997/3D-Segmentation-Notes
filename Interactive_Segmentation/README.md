@@ -592,6 +592,12 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 
 ## Method
 -	2D CNN trained on limited training data
+-	User provides Fg and Bg clicks and Gaussian Heatmaps are generated in the shape of the image
+	-	Concatenated with the image and fed to the U-Net model
+	-	Very similar to DEXTR, but the points do not need to be extreme
+-	Model is trained on binary segmentation for multiple organs
+	-	Authors claim that any region that shows a distinctive pattern or some form of spatial coherence can be segmented this way (zero-shot)
+-	
 
 
 # UGIR (2020)
