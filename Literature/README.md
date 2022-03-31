@@ -20,6 +20,8 @@
 
 [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
 
+[(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf)
+
 [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA)
 
 [(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf)
@@ -27,6 +29,8 @@
 [(2016): Deep Interactive Object Selection](https://openaccess.thecvf.com/content_cvpr_2016/papers/Xu_Deep_Interactive_Object_CVPR_2016_paper.pdf)
 
 [(2016): DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://ieeexplore.ieee.org/iel7/34/8306529/07913730.pdf?casa_token=fdkNMc_wK3YAAAAA:_he6kDPbeCglP1MF8gbqT6d5X1-DjwaquDx0jKh4o_eJr-GsgcvoKpUguxoHu0u4csrshEKE0w)
+
+[(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287)
 
 [(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1)
 

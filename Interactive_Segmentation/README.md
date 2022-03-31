@@ -324,6 +324,41 @@
 	-	DCNN unary terms are fixed during training of CRF
 		-	CRF "training" via mean-field-approximation iterations  
 		-	Hyperparameters are found by cross-validation on 100 images with a coarse-to-fine search
+# SlicSeg (2015)
+
+## Related work
+-	Single Shot Fast Spin Echo (SSFSE) allows motion artefacts to be absent in the slices 
+	-	However, an inhomogenous appearance between slices can occur, caused by the interleaved spatial order of the slices
+-	Authors list Active Contours, Graph Cuts, Geodesic Frameworks (GeoS), Random Walks, GrowCut
+	-	Most of these methods rely on low-dimensional features and need a large number of user interactions to deal with images with low contrast and weak boundaries
+
+## Method
+-	Placenta Segmentation
+	-	Challenges are:
+		-	Sparse acquisition
+		-	Inter-slice motion
+		-	Inter-Subject Variance in position and shape of the placenta
+-	Random Forests with high-level features
+	-	Combination of Online Random Forests and CRFs and a user interaction for **only one slice**
+	-	ORF are trained on data coming from scribbles from the user in one slice
+	-	Slice-by-slice propagation
+-	Binary segmentation
+-	CRF uses the prediction probabilities of the ORF and generates new segmentations (used to self-train the ORF)
+-	First slice is used to train the initial RF
+	-	CRF outputs the label for it
+	-	Then the background and foreground are eroded using a filter of size 10 pixels and are fed to train the ORF
+	-	The ORFs are trained by minimizing the entropy and each tree is trained on a random number of new samples 
+	-	The CRFs are used every time to obtain pseudo-labels
+-	
+-	![](../images/slicseg.png)
+
+## Result
+-	Higher accuracy than sota interactive segmentation methods
+	-	Compare segmentations using the same initial scribbles
+
+
+
+
 
 # DeepCut (2017) - Extension of GrabCut (2004)
 
@@ -367,7 +402,7 @@
 	-	Each vertex is outputed as a one-hot-encoding for a position on a DxD grid
 	-	
 
-# DeepIGeoS (2017)
+# DeepIGeoS (2017) - Follow-up to Slic-Seg
 
 ## Method
 -	CNN model **p**roposes segmentation (P-Net)
@@ -475,6 +510,7 @@
 
 # BIFSeg (2018) ---> extension of DeepIGeoS for unseen objects
 
+BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 ## Related Work
 -	They list DeepCut, DeepIGeoS, Deep Interactive Object Selection
 	-	One challenge when using CNNs is the requirement of large amounts of annotated images for training
@@ -487,6 +523,7 @@
 -	Bounding box to extract foreground from background
 -	Image-specific fine-tuning on **test** data
 	-	Either with or without the user interactions (scribbles)
+	-	**Contribution**: First method to train on a dataset and **adapt/fine-tune** on individual test-images (in contrast: GrabCut creates a new model for each test image)
 -	Low memory requirements for fast inference
 -	Con: Only binary segmentation
 -	Training:
@@ -512,7 +549,15 @@
 	-	CNN can be applied to unseen objects! **(zero-shot learning)**
 -	Architecture
 	-	They use the proposed P-Net model from DeepIGeoS
+	-	They also show that P-Net generalizes better than FCN and U-Net for unseen objects/organs
 -	![](../images/bifseg.png)
+
+## Results
+-	They compare in 2D with
+	-	GrabCut, FCN, U-Net, Slic-Seg, Random Walks
+-	In 3D with
+	-	3D Grab Cut, DeepMedic, HighRes3DNet, GeoS, GrowCut
+	-	They use T1c for training and evaluate on T1c and FLAIR images 
 
 
 # DEXTR (2018)
