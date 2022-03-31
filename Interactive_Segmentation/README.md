@@ -582,6 +582,42 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	They show that clicking is better than bounding box annotations on PASCAL, COCO and Grabcut
 
 
+# UGIR (2020)
+
+## Related Work
+-	List BIFSeg, DeepIGeoS and other method (2019)
+	-	Better than traditional interactive methods
+	-	Require the user to manually go through the slices to inspect where the models have failed (would benefit from active learning)
+-	Active Learning paper (2011) shows that this is a beneficial topic to explore
+-	Uncertainty estimation
+	-	MC-Dropout, Model Ensemble, Test-Time augmentations 
+		-	Require multiple forward passes
+	-	Bayesian Network
+		-	Not yet investigated for interactive refinement
+
+## Method
+-	Grouped-Convolution CNN to obtain multiple predictions
+-	Uncertainty estimation with a single forward pass
+	-	User can guide the model on the subset of slices with the highest prediction uncertainty
+-	The results are refined using an interactive level-set method
+	-	Using the initial segmentation and user predictions
+-	![](../images/ugir.png)
+
+-	Multi-Group CNN (MG-CNN)
+	-	Modified U-Net 
+	-	Input is split into N groups 
+		-	Each channel is convolved independently -> N independent feature maps are obtained
+		-	Predictions are obtained by N-softmax layers (i.e. group-wise softmax)
+		-	Model can be seen as an ensemble of N parallel sub-networks
+		-	Bottleneck feature merges the groups to "allow the communication of these N sub-networks"
+-	![](../images/mg-net.png)
+-	Uncertainty of the image is the sum of uncertainty pixels, normalized by the area of the segmented region
+-	Refinement is done with an Interactive Distance Regularized Level Set Evolution (I-DRLSE)
+	-	Compared to using Graph Cut, or R-Net
+## Results
+-	Uncertainty estimations correlated with mis-segmentations
+-	Similar performance as DeepIGeoS, but twice as fast
+
 
 
 
