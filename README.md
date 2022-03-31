@@ -3,7 +3,8 @@
 ## Mind-Map of Keywords
 
 -	Segmentation
-	-	Interactive
+	-	Interactive 
+		-	Semi-automatic (vs. manual or automatic)
 	-	3D
 	-	Medical Images
 	-	Multilabel / Binary (Foreground-Background)

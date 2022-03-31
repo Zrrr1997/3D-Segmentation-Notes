@@ -49,6 +49,8 @@
 
 [(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
 
+[(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf)
+
 [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
 
 [(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481)

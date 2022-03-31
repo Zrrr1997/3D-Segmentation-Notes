@@ -581,6 +581,18 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 ## Results
 -	They show that clicking is better than bounding box annotations on PASCAL, COCO and Grabcut
 
+# IFSeg (2019)
+
+## Related Work
+-	Manual approaches are tedious and have a inter- and intra-observer variability
+-	Fully-automatic methods are sensible to domain shifts 
+	-	Not easy to recover from these domain shifts, there is no mechanism of user interaction to correct mistakes
+	-	Hard to generalize to unseen structures
+-	Traditional approaches work well when regions are homogoenous, but because they rely on low-level features, they fail in more difficult cases
+
+## Method
+-	2D CNN trained on limited training data
+
 
 # UGIR (2020)
 
