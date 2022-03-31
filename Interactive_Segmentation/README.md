@@ -618,6 +618,77 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Uncertainty estimations correlated with mis-segmentations
 -	Similar performance as DeepIGeoS, but twice as fast
 
+# MIDeepSeg (2021)
+
+## Motivation
+-	Automatic DNN methods do not have a high enough accuracy and robustness.
+-	Interactive frameworks usually improves this, but previous approaches still require a lot of user input. 
+	-	Too much input and the model collapses to a manual annotation
+-	Challenges in medical images
+	-	Low contrast, different imaging and segmentation protocols, variation among patients
+	-	Low-level features are not enough to effectively distinguish the object from the background in many situations with low contrast
+-	The geodesic distance transform is spatially smooth and contrast-sensitive to encode user interactions.
+
+## Related Work
+-	Deep Interactive Object Selection, DEXTR and Two-Stream4Med lack evaluation on medical images with low contrast and ambiguous boundaries and are not adapted for 3D.
+-	PolygonRNN and PolygonRNN++'s ability to deal with objects with complex shapes and 3D medical images is limited.
+-	DeepIGeoS, IF-Seg, DeepCut and BIFSeg are specially designed to segment medical images
+	-	DeepCut and Weakly-Supervised 3D method were designed for training over a large dataset rather than interactively editing a single segmentation result at test time
+	-	DeepIGeoS lacks adaptability to unseen objects
+		-	It is time-consuming to find an appropriate threshold value for the geodesic distance map 
+	-	IFSeg is easy to use, but it has only been tested on **one** unseen structure to test its generalization
+	-	BIFSeg is limited to only a few unseen objects in the same image modality and context
+		-	It is also time-consuming to fine-tune it on each test image
+	-	DEXTR
+		-	Extreme points are not enough to capture the main shape of irregular and concave shapes
+	-	DeepLab, DeepMedic
+		-	Use CRF, but not designed for **interactive** segmentation
+
+## Method
+-	CNN guided with only a few clicks of user interactions
+	-	Interior margin points
+	-	Points inside the object and close to the boundary
+	-	EGD transform can compute the saliency map of the object
+-	![](../images/egd.png)
+-	Interactions are encoded via the Exponentialized Geodesic Distance Transform (EGD)
+	-	Context aware and parameter-free
+	-	Combination of Geodesic distance transform and Exponential Transform
+	-	Just an exponential of the (negative) geodesic distance
+		-	Small geodesic distances to the margin points lead to a high value in the cue map (white values)
+-	Information fusion, which uses additional clicks to refine the segmentation
+	-	Followed by Graph Cut 
+-	![](../images/MIDeepSeg.png)
+
+-	The user provided points are used to infer a relaxed bounding box to crop the input image
+-	A cue map is computed based on the points and the EGD
+-	Training
+	-	Interior margin point generation
+		-	3-4 points close to the EXTREME points of the object 
+			-	make sure the object is inside the implicit bounding box
+		-	n more points (0-5) along the boundary of the object mask
+		-	Implicit bounding box is relaxed to contain some background context information
+-	CNN can be any model - they use 2D/3D U-Net to show the proof-of-concept
+	-	CNN is trained on Image + Cue Map concatenated along the channels
+-	Refinement stage
+	-	User provides clicks for mis-segemented background and foreground 
+	-	New margin points are added to the initial points
+		-	New EGD cue maps are generated for Bg and Fg and fused with the probabilities of the Fg, Bg of the CNN
+		-	The probability maps are refined by the new cue maps with a linear interpolation
+			-	Interpolation factor depends on the minimum distance to the provided clicks
+		-	EGD can be considered as a probabilistic map (bound to [0,1]), which can seemlessly be integrated into a CRF framework
+-	![](../images/edg-refinement.png)
+-	The refined probability maps are fed to a CRF 
+	-	Unary term is NLL of refined maps
+	-	Binary term is typical CRF term (image intensity vs. euclidean distance)
+-	Refined segmentation can be achieved via Graph Cut
+
+## Results
+-	Comparison to other distance transform to show the EGD is the best
+-	Comparison to with and without user interactions
+-	Comparison to Graph Cuts, Randow Walks, SlicSeg, DeepIGeoS, DIOS, DeepGrabCut, DEXTR for 2D
+-	Comparison to ITK-Snap, 3D Graph Cutsm DeepIGeoS, DIOS, DEXTR for 3D
+	-	DIOS - Deep Interaction Object Selection
+
 
 
 

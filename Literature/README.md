@@ -51,6 +51,8 @@
 
 [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
 
+[(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481)
+
 [(2022): An Efficient Interactive Multi-label Segmentation Tool for 2D and 3D Medical Images using Fully Connected Conditional Random Field](https://www.sciencedirect.com/science/article/abs/pii/S0169260721006088?casa_token=XAsUoRmNlucAAAAA:qkbVKoptJDfiJM6U8_uUffEiOR_MRNeFyT7jBZ7HgIaTlPDIMxUmxT47WFUUrTRWIC3goEiQmAE)
 
 
