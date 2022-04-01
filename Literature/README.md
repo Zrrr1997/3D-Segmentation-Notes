@@ -23,6 +23,8 @@
 
 [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf)
 
+[(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf)
+
 [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
 
 [(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf)
@@ -53,6 +55,8 @@
 [(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) 
 
 [(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
+
+[(2018): Iterative Interaction Training for Segmentation Editing Networks](https://arxiv.org/pdf/1807.08555.pdf)
 
 [(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf)
 

@@ -581,6 +581,39 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 ## Results
 -	They show that clicking is better than bounding box annotations on PASCAL, COCO and Grabcut
 
+# Inter-CNN (2018)
+
+## Related Work
+-	GrabCut, GeoS, Random Walker
+	-	Require a large number of interactions
+-	UI-Net, Iteratively trained IIS, and BIFSeg have shown better results than traditional methods
+-	DeepIGeoS does not take into account the fact that a user may be interacting with the tool over several iterations
+	-	Each time providing scribbles based on the results of the last update
+	-	Model is also trained on only one interaction (scribbles) without multiple steps
+
+## Motivation
+-	The need for interaction increases when there is a domain shift (e.g. scanner differences)
+
+## Method
+-	CNN-agnostic scheme which is trained on **simulated** user interactions
+-	**Multi-label** segmentation
+-	![](../images/interCNN.png)
+-	Inter-CNN is not trained on a **single** interaction but on a fixed number of **K** consecutive interactions (simulated by a *robot*)
+	-	Scribbles are provided based on the discrepancy between GT and current predictions
+	-	Input of Inter-CNN is not only the image, but also the (Image + Prediction + Scribble Mask)
+	-	K is set to 20 in the paper
+-	U-Net is used for both the automatic and refinement models
+-	Simulating the user (Robot User):
+	-	First the set of missegmented pixels is identified
+	-	Then a pixel from this set is chosen randomly for each class separately
+	-	We look up the class of this pixel and:
+		-	All the pixel with the same GT class as this pixel in the 9x9 region around it are marked as new scribbles
+		-	This is done for each class
+## Results
+-	Compared to UI-Net and BIFSeg
+	-	Much faster convergence than BIFSeg, similar results to UI-Net
+	-	Much simpler concept than BIFSeg (personal opinion)
+
 # IFSeg (2019)
 
 ## Related Work
@@ -597,7 +630,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Very similar to DEXTR, but the points do not need to be extreme
 -	Model is trained on binary segmentation for multiple organs
 	-	Authors claim that any region that shows a distinctive pattern or some form of spatial coherence can be segmented this way (zero-shot)
--	
+
 
 
 # UGIR (2020)
