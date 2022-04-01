@@ -4,6 +4,8 @@
 
 [Medical Image Segmentation Using Deep Learning: A Survey (2020)](https://arxiv.org/pdf/2009.13120.pdf)
 
+[A survey of recent interactive image segmentation methods (2020)](https://link.springer.com/article/10.1007/s41095-020-0177-5)
+
 [Medical Image Segmentation With Limited Supervision: A Review of Deep Network Models (2021)](https://ieeexplore.ieee.org/iel7/6287639/9312710/09363892.pdf)
 
 # Interactive Segmentation
@@ -55,6 +57,8 @@
 [(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf)
 
 [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
+
+[(2020): Iteratively-Refined Interactive 3D Medical Image Segmentation with Multi-Agent Reinforcement Learning](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liao_Iteratively-Refined_Interactive_3D_Medical_Image_Segmentation_With_Multi-Agent_Reinforcement_Learning_CVPR_2020_paper.pdf)
 
 [(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481)
 
