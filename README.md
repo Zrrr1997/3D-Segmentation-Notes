@@ -9,7 +9,12 @@
 	-	Medical Images
 	-	Multilabel / Binary (Foreground-Background)
 	-	**Hard** segmentation
--	Sparse Labels / Weakly Supervised
+-	Sparse Labels / Limited Supervision
+	-	Partially supervised
+	-	Limited supervision
+	-	(Weakly supervised?) 
+		-	Does this imply a large dataset, but only with a small amount of labels?
+	-	Sparse annotation
 	-	Small training dataset
 	-	Scribbles
 	-	Clicks
