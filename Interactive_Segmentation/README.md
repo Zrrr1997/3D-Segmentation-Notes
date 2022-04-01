@@ -676,6 +676,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	The task is to find the series of actions to adjust the segmentation probability with a certain level
 -	Initial segmentation can be obtained using any accessible segmentation method
 	-	Then the coarse initial segmentation is updated iteratively by their method
+-	![](../images/iter-mrl.png)
 -	Methodology step-by-step:
 	-	And FCN is used as an actor network
 	-	The state of an actor (voxel) is
