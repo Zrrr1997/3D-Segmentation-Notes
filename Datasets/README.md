@@ -29,7 +29,7 @@
 ## AMRG Cardiac Atlas
 -	Heart
 
-## LIDC-IDRI, VESSEL12
+## LIDC-IDRI, VESSEL12, LUNA
 -	Lung
 
 ## PROMISE12
@@ -49,6 +49,7 @@
 
 ## TNSCUI
 -	Thyroid
+
 
 
 

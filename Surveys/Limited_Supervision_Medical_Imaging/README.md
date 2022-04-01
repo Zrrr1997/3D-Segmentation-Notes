@@ -88,8 +88,27 @@
 				-	k-images are referred to as the support set
 -	![](../../images/semi-supervised.png)
 ## Partial annotations
+-	Assumes that **partial annotations** are available for all examples (or a subset of the examples)
+-	Advantage is the reduced load of manual annotation (partial annotating is faster)
+-	Partial-Supervision is **more challenging than semi-supervision**]
+-	Examples
+	-	Volume segmentation with sparsely annotated slices
+		-	Only a few slices have complete annotation
+		-	Labels can be propagated to the whole volume
+		-	Can also be solved with self-training
+	-	Segmentation with partially-annotated regions
+		-	Label information at a few pixels -> scribbles!
+		-	Used especially often in **interactive segmentation**
+			-	Often combined with active learning to select samples which benefit the most from labels.
+	-	Segmentation with point annotations
+		-	Labeling only **one point of the object**
+			-	Fast, but extremely sparse and contain only local information
+	-	Multiclass segmentation from multiple few-class-labeled datasets 
+		-	Most datasets contain **certain** specific classes (organs)
+			-	One must combine multiple datasets to obtain the complete label set for e.g. multi-organ segmentation
+## Inaccurately-supervised segmentation
+-	Ground-truth labels are corrupted with noises - noisy labels.
+-	Imprecise boundaries and mislabeling count as well
+	-	Bounding-boxes can be treated as annotations with inaccurate boundaries
 
 
-## Inaccurate annotations
-	-	Noisy labels, Bounding Boxes, Scribbles
--	
