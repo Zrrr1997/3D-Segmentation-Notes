@@ -485,6 +485,7 @@
 	-	Similarity is simply the cosine similarity between the FCN-embeddings of the images
 	-	First top-K uncertain images are sampled from the unannotated set
 		-	Then the top-N images with highest similarity to the whole annotated set are sampled
+	-	No human-in-the-loop --> fully automatized
 
 
 
@@ -676,6 +677,39 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Model is trained on binary segmentation for multiple organs
 	-	Authors claim that any region that shows a distinctive pattern or some form of spatial coherence can be segmented this way (zero-shot)
 
+
+# Two-stream FCN (2019)
+
+## Motivation
+-	The fusion network reduces the number of layers between the user-interaction features and the output
+	-	The output is influenced more by the user's intent
+
+## Related Work
+-	Traditional algorithms (GraphCut, GrabCut, RandomWalk, Geodesic cut) only utilize low-level features and hence cannot deal with:
+	-	Similar colors of fore- and background 
+	-	Inhomogenous foreground intensities
+	-	Require a lot of user interaction
+-	Most DNN-based interactive segmentation methods use **early fusion** to incorporate the user interactions
+	-	An early fusion of the user interactions might weaken the influence of these interactions
+	-	Especially considering sota DNNs consist of a large number of parameters
+
+## Method
+-	Late fusion, as opposed to all the early fusion related work
+-	Two parts
+	-	Two-stream late fusion network (TSLFN)
+		-	One stream for the image features
+		-	One stream fo the user interactions
+	-	Multi-scale refining network (MSRN)
+		-	Fuses features from different layers of TSLFN, hence different scales
+			-	Local and global features
+-	![](../images/two-stream.png)
+
+## Architecture
+-	Base network is based on VGG16
+-	Authors claim they have tried slow-fusion, but it did not work well
+	-	Slow-fusion is originally designed for RGB + Depth, where the depth information already includes boundary information
+	-	Whereas user interaction-transoforms do not include such fine-grained information
+-	![](../images/two-stream-arch.png)
 
 
 # UGIR (2020)
