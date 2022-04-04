@@ -51,6 +51,8 @@
 
 [(2017): Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation](https://arxiv.org/pdf/1706.04737.pdf)
 
+[(2017): Deep grabcut for object selection](https://arxiv.org/pdf/1707.00243.pdf)
+
 [(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf)
 
 [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 

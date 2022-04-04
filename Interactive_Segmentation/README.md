@@ -499,7 +499,37 @@
 	-	No human-in-the-loop --> fully automatized
 
 
+# Deep GrabCut (2017) - Extension of GrabCut and DIOS
 
+## Related Work
+-	GrabCut, BoxPrior do not work when the bounding box is inside the object (does not cover it completely)
+	-	Assume that the entire object is within the bbox
+	-	Especially large problem when detections come from an algorithm/model
+-	GrabCut, OneCut and BBox priors only rely on basic color and edge information and do not use higher-order knowledge
+-	Inspired by DIOS
+	-	DIOS requires post-processing with graph cut
+	-	Deep GrabCut works also for **multi-object** segmentation
+
+## Method
+-	Tranform **rectangles** into Euclidean distance maps
+-	Multi-object segmentation (zero-shot)
+	-	Detections may overlap 
+		-	Apply dense CRF to convert individual segments into instance-level semantic labels
+-	![](../images/deep-grabcut.png)
+-	Training
+	-	Train set is composed of (image, rectangle) pairs
+	-	Training rectangles are sampled by applying random jitter to the ground-truth bounding box
+	-	The Euclidean distance map is concatenated to the image as a 4-channel input
+	-	Encoder FCN is with the VGG-16 backbone
+		-	Trained end-to end on semantic segmentation
+	-	Trained semantic segmentation model is then extended to instance segmentation using CRFs
+		-	Non-max supression for all bbox candidates
+		-	The confidence of each bbox is used to multiply the pixels underneath it to obtain new probability values
+		-	Probability of background is the multiplied probabilities of all the bounding boxes
+		-	CRF can be applied directly to these probabilities
+-	![](../images/deep-grabcut-eval.png)
+-	Pro: Works quite well for bad bounding boxes in comparison to traditional non-DNN approaches
+-	Pro: Deep GrabCut can also generalize to scribbles (but only closed curves)
 
 # PolygonRNN++ (2018) - extension of PolygonRNN 
 
