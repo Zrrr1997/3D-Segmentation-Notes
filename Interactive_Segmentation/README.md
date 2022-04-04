@@ -671,6 +671,32 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Much faster convergence than BIFSeg, similar results to UI-Net
 	-	Much simpler concept than BIFSeg (personal opinion)
 
+# Latent Diversity (2018)
+
+## Related Work
+-	DIOS relies heavily on post-processing with Graph Cut
+	-	Latent Diversity only needs a forward pass
+
+## Method
+-	Two networks
+	-	First one synthesizes a diverse set of plausible segmentations that conform to the user's input
+	-	The second one is trained to select among these
+-	User input as clicks
+-	Binary Segmentation
+	-	Confidence thresholded at 0.5 for hard segmentation
+-	![](../images/latent-diversity.png)
+-	The authors claim that the segmentation network can fully commit to one of these semgentations instead of "splitting the difference"
+	-	This would result in partial segmentations, because the network would have to "meet them in the middle"
+	-	Adopting a network which chooses one segmentation alleviates this problem
+-	Workflow
+	-	Distance transforms are the same euclidean ones from DIOS
+	-	VGG-19 is used as a feature extractor
+	-	Segmentation network outputs a feature with M channels - for M segmentation proposals
+		-	Sigmoid with 0.5 threshold to output segmentations
+	-	Selection network is trained with cross-entropy on the proposed masks with the largest IoU
+
+
+
 # IFSeg (2019)
 
 ## Related Work
