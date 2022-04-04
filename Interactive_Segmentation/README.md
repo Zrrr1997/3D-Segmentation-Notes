@@ -194,6 +194,41 @@
 	-	e.g. Gaussian, Spatial, and Bilateral filter parameters
 -	![](../images/crf-rnn.png)
 
+
+# SlicSeg (2015)
+
+## Related work
+-	Single Shot Fast Spin Echo (SSFSE) allows motion artefacts to be absent in the slices 
+	-	However, an inhomogenous appearance between slices can occur, caused by the interleaved spatial order of the slices
+-	Authors list Active Contours, Graph Cuts, Geodesic Frameworks (GeoS), Random Walks, GrowCut
+	-	Most of these methods rely on low-dimensional features and need a large number of user interactions to deal with images with low contrast and weak boundaries
+
+## Method
+-	Placenta Segmentation
+	-	Challenges are:
+		-	Sparse acquisition
+		-	Inter-slice motion
+		-	Inter-Subject Variance in position and shape of the placenta
+-	Random Forests with high-level features
+	-	Combination of Online Random Forests and CRFs and a user interaction for **only one slice**
+	-	ORF are trained on data coming from scribbles from the user in one slice
+	-	Slice-by-slice propagation
+-	Binary segmentation
+-	CRF uses the prediction probabilities of the ORF and generates new segmentations (used to self-train the ORF)
+-	First slice is used to train the initial RF
+	-	CRF outputs the label for it
+	-	Then the background and foreground are eroded using a filter of size 10 pixels and are fed to train the ORF
+	-	The ORFs are trained by minimizing the entropy and each tree is trained on a random number of new samples 
+	-	The CRFs are used every time to obtain pseudo-labels
+-	
+-	![](../images/slicseg.png)
+
+## Result
+-	Higher accuracy than sota interactive segmentation methods
+	-	Compare segmentations using the same initial scribbles
+
+
+
 # ScribbleSup (2016) 
 
 ## Method
@@ -222,7 +257,7 @@
 	-	Then vice versa and repeat ---> Simple backpropagation
 -	![](../images/scribblesup.png)
 
-# ITK-Snap
+# ITK-Snap (2016)
 
 ## Method
 -	Interactive tool for semi-automatic segmentation of multi-modality biomedical images
@@ -238,7 +273,7 @@
 -	**Stage 2**: Active contours guided by speed function and user seeds
 
 
-# Deep Interactive Object Selection (2016)
+# Deep Interactive Object Selection (2016) - DIOS
 ## Note: First deep learning method (using CNNs) for interactive object segmentation
 
 ## Related Work
@@ -290,7 +325,6 @@
 
 # DeepLab (2016) - First CNN scores + CRF method (non-interactive)
 
-
 ## Motivation
 -	Responses at the final layer of DCNNs are not sufficiently localized for accurate object segmentation.
 	-	Caused by the invariance properties, which make DCNNs good for high-level tasks.
@@ -324,41 +358,18 @@
 	-	DCNN unary terms are fixed during training of CRF
 		-	CRF "training" via mean-field-approximation iterations  
 		-	Hyperparameters are found by cross-validation on 100 images with a coarse-to-fine search
-# SlicSeg (2015)
 
-## Related work
--	Single Shot Fast Spin Echo (SSFSE) allows motion artefacts to be absent in the slices 
-	-	However, an inhomogenous appearance between slices can occur, caused by the interleaved spatial order of the slices
--	Authors list Active Contours, Graph Cuts, Geodesic Frameworks (GeoS), Random Walks, GrowCut
-	-	Most of these methods rely on low-dimensional features and need a large number of user interactions to deal with images with low contrast and weak boundaries
+
+# DeepMedic (2016)
+
+## Related Work
+-	Manual Annotation is prone to human error and results in significant intra- and inter-rater variability.
 
 ## Method
--	Placenta Segmentation
-	-	Challenges are:
-		-	Sparse acquisition
-		-	Inter-slice motion
-		-	Inter-Subject Variance in position and shape of the placenta
--	Random Forests with high-level features
-	-	Combination of Online Random Forests and CRFs and a user interaction for **only one slice**
-	-	ORF are trained on data coming from scribbles from the user in one slice
-	-	Slice-by-slice propagation
--	Binary segmentation
--	CRF uses the prediction probabilities of the ORF and generates new segmentations (used to self-train the ORF)
--	First slice is used to train the initial RF
-	-	CRF outputs the label for it
-	-	Then the background and foreground are eroded using a filter of size 10 pixels and are fed to train the ORF
-	-	The ORFs are trained by minimizing the entropy and each tree is trained on a random number of new samples 
-	-	The CRFs are used every time to obtain pseudo-labels
--	
--	![](../images/slicseg.png)
-
-## Result
--	Higher accuracy than sota interactive segmentation methods
-	-	Compare segmentations using the same initial scribbles
-
-
-
-
+-	Architecture:
+	-	Two streams - input at original and at a lower resolution to achieve a large receptive field for the final classification while keeping the computational cost low.
+-	![](../images/deepmedic.png)
+-	Fully-connected CRF as a post-processing step
 
 # DeepCut (2017) - Extension of GrabCut (2004)
 
@@ -678,7 +689,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Authors claim that any region that shows a distinctive pattern or some form of spatial coherence can be segmented this way (zero-shot)
 
 
-# Two-stream FCN (2019)
+# Two-stream FCN (2019) - extension of DIOS
 
 ## Motivation
 -	The fusion network reduces the number of layers between the user-interaction features and the output

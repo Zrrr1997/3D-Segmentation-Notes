@@ -39,6 +39,8 @@
 
 [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287)
 
+[(2016): DeepMedic for Brain Tumor Segmentation](https://spiral.imperial.ac.uk/bitstream/10044/1/50790/2/kamnitsas2016brats.pdf)
+
 [(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1)
 
 [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw)
