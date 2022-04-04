@@ -45,6 +45,10 @@
 
 [(2017): Annotating Object Instances with a Polygon-RNN](https://openaccess.thecvf.com/content_cvpr_2017/papers/Castrejon_Annotating_Object_Instances_CVPR_2017_paper.pdf)
 
+[(2017): UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model](https://arxiv.org/pdf/1709.03450.pdf)
+
+[(2017): Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation](https://arxiv.org/pdf/1706.04737.pdf)
+
 [(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf)
 
 [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 

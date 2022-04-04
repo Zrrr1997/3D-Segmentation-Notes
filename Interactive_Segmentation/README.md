@@ -443,6 +443,51 @@
 			-	The aim is: the closes background component should be as dissimiliar as possible to any foreground component
 -	![](../images/loosecut.png)
 
+# UI-Net (2017)
+
+## Motivation
+-	Semi-automatic methods are more suitable than fully-automatic ones, when only few data sets need to be processed for a highly accurate results
+	-	e.g. single patient scan
+
+## Method
+-	Active user model (also called robot user)
+	-	Fast and scalable method to simulate plausible user interactions
+	-	The model can be learned by a database of interactions or defined by a rule-based system
+		-	Authors of UI-Net opt for a rule-based
+	-	Erosion on the boundary is used as a seed for foreground
+	-	Dilation on the boundary is used as as seed for background
+		-	Prevents initial seed placement too near to the boundary
+	-	Samples from missclassified pixels are sampled and added with their GT labels to the initial seeds
+		-	This is repeated iteratively
+-	![](../images/ui-net-seeds.png)
+
+# Suggestive Annotation (2017)
+
+## Motivation
+-	Different modalities, image settings, object in medical images ofter require creating a new set of training data
+-	What instances should be annotated to attain the best peformance, given limited time?
+	-	FCN + Active Learning
+-	Annotating medical images is difficult
+	-	Only trained biomedical experts can annotate data
+	-	Biomedical images often contain much more object instances than natural scene images
+
+## Method
+-	Utilize uncertainty and similarity information from the FCN
+	-	Formulate a maximum set cover problem to determine the most representatitve uncertain areas	
+-	![](../images/suggestive-annotation.png)
+-	Active learning through uncertainty and similarity
+	-	Uncertainty with **Bootstrapping**
+		-	Train a set of FCNs on different subsets of the training data (sampling with replacement)
+		-	Uncertainty is calculated using the variance (disagreement) among these models
+		-	Uncertainty is highly correlated with the testing errors
+		-	Image uncertainty is aggregated through the mean-pixel uncertainty
+	-	![](../images/suggestive-annotation-uncertainty.png)
+	-	Similarity is simply the cosine similarity between the FCN-embeddings of the images
+	-	First top-K uncertain images are sampled from the unannotated set
+		-	Then the top-N images with highest similarity to the whole annotated set are sampled
+
+
+
 
 # PolygonRNN++ (2018) - extension of PolygonRNN 
 
