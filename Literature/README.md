@@ -53,6 +53,8 @@
 
 [(2017): Deep grabcut for object selection](https://arxiv.org/pdf/1707.00243.pdf)
 
+[(2017): Regional Interactive Image Segmentation Networks](https://openaccess.thecvf.com/content_iccv_2017/html/Liew_Regional_Interactive_Image_ICCV_2017_paper.html)
+
 [(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf)
 
 [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 

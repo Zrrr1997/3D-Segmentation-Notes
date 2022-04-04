@@ -531,6 +531,41 @@
 -	Pro: Works quite well for bad bounding boxes in comparison to traditional non-DNN approaches
 -	Pro: Deep GrabCut can also generalize to scribbles (but only closed curves)
 
+# Regional IIS (RIS-Net) (2017)
+
+## Related work
+-	Graph Cut, Random Walker, Geodesics, Geodesics + Graph Cut, Growcut all rely on low-level cues
+	-	Difficult to predict fg/bg when similar colors, textures 
+-	Snakes and Intelligent Scissors mainly consider boundary properties, thus performing poorly at weak edges
+-	DIOS has a higher level understanding of objectness and semantics
+	-	Often struggles to refine its predictions given additional inputs
+
+## Method
+-	Expands the field-of-view of the input to capture the local regional information surrounding them
+	-	Stronger ability to refine local segmentations (than DIOS)
+-	Adopts multiscale global contextual information to augment each local region for improving feature representation
+-	![](../images/RIS-net.png)
+-	Training:
+	-	Input is the image with the Euclidean maps of the user clicks
+	-	FCN is used with DeepLab (VGG-16) backbone
+		-	These make up the Global branch: coarse aggregation 
+	-	Sampling ROI proposals
+		-	A ROI is sampled by iterating over all positive clicks
+			-	The nearest negative click makes up the whole region
+			-	Additional 2 ROIs are sampled by interpolating between the rest of the 3 ROIs (sampled by clicks)
+	-	Global context
+		-	The conv7 layer of the Global branch is used with filters with different scales to obtain multi-scale global features
+			-	The global features are then concatenated to each region embedding
+	-	Click discount
+		-	Inspired by RL
+		-	The ROI with the worst segmentation error is processed first in the loss
+		-	The following ROIs are then discounted exponentially (worst ROI has the largest penalty in the loss)
+		-	This forces the model to reduce the number of needed ROIs
+	-	Local-Global Fusion
+		-	Each local segmentation prediction is padded with zeros and then all patches are fused with max-pooling
+
+
+
 # PolygonRNN++ (2018) - extension of PolygonRNN 
 
 ## Method
