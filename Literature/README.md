@@ -16,12 +16,10 @@
 | [(2004): “GrabCut” — Interactive Foreground Extraction using Iterated Graph Cuts](https://dl.acm.org/doi/pdf/10.1145/1015706.1015720?casa_token=B361ZlfabGgAAAAA:yho3D542s08qx0zQ-gTeoRuge6eXMqdomiUV75Eap1E5hmYV4fgFXVm1yqj5_y8Z5R83EV_5fXK23Q) | :heavy_check_mark: |  | none | none | | :heavy_check_mark: | | | | ACM, TOG (2004) | [code](https://github.com/Orcuslc/GrabCut) |
 | [(2004): Lazy Snapping](https://dl.acm.org/doi/pdf/10.1145/1015706.1015719?casa_token=D6un7PlrIQYAAAAA:NobQ6GhWdf7CAdwalTmBPT1hmF7S1XFnbqf78oXtuPocpIizL188bhTV2QZBbMOXbBcD1pURWahBYQ) | :heavy_check_mark: |  | none | none | | :heavy_check_mark: | | | | ACM, TOG (2004) | [code](https://github.com/sarkar1211/Lazy-Snapping) |
 | [(2005): “GrowCut” - Interactive Multi-Label N-D Image Segmentation By Cellular Automata](https://www.graphicon.ru/html/2005/proceedings/papers/VezhntvetsKonushin.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | :heavy_check_mark: | Graphicon (2005) | [code](https://github.com/nfaggian/growcut) |
-| [(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | ECCV (2008) | [code-related](https://github.com/taigw/GeodisTK) |
+| [(2008): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | ECCV (2008) | [code-related](https://github.com/taigw/GeodisTK) |
 | [(2010): Geodesic Star Convexity for Interactive Image Segmentation](https://ieeexplore.ieee.org/iel5/5521876/5539770/05540073.pdf?casa_token=R57_593asiMAAAAA:TnQKlRww0qDa6w4NkqC033rYEmSqNra57UIdVnEDoT4fWoZX-kaVLQAn0_sxPN-T95YpoF5lIg) | :heavy_check_mark: | | none | none | | :heavy_check_mark: | | | | CVPR (2010) |  |
-
-[(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf)
-
-[(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf)
+| [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | MICCAI (2011) |  |
+| [(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf) | :heavy_check_mark: | | none | none | | | | | | :heavy_check_mark: | NIPS (2011) | [code](https://github.com/HiLab-git/SimpleCRF) |
 
 [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
 
