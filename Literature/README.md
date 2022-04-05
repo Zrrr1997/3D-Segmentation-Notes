@@ -21,6 +21,8 @@
 
 [(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf)
 
+[(2010): Geodesic Star Convexity for Interactive Image Segmentation](https://ieeexplore.ieee.org/iel5/5521876/5539770/05540073.pdf?casa_token=R57_593asiMAAAAA:TnQKlRww0qDa6w4NkqC033rYEmSqNra57UIdVnEDoT4fWoZX-kaVLQAn0_sxPN-T95YpoF5lIg)
+
 [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf)
 
 [(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf)

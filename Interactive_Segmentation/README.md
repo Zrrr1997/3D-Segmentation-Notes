@@ -136,6 +136,28 @@
 	-	Weak unaries (high uncertainty of the classifier) lead to vastly different results when thetas are altered
 -	Search space for the theta parameters can be traversed linearly and in parallel
 
+# Geodesic Star Convexity (2010) - extends star-shape prior + GC 
+
+## Motivation
+-	Shape constraints helps to remove disconnected FG islands and also to connect up FG islands into a single component
+-	Shape constraints restrict the space of possible segmentations
+-	Shapes are usually represented as some kind of distance transform from a template
+
+## Method
+-	Multiple starts with Geodesic paths
+	-	Authors introduce geodesic forests
+-	Star convexity
+	-	A shape is star convex w.r.t. to a center c if all points on the shape can be connected with a line to c without multiple crossings of the shape with itself 
+-	![](../images/star-convexity.png)
+-	Con: Not all real-world objects are star-convex, i.e. a cat's tail would hinder this
+-	Multiple stars
+	-	Make sure each point is visible to the **nearest center point**
+	-	Multiple centers ---> multiple stars
+-	Using geodesic distance
+	-	For all pixels in the image, the shortest path connecting each point to the start centers creates a **geodesic forest**
+-	The user brush strokes can be used as star-centers
+-	Evaluation through robot user
+
 # Active Learning (2011) 
 
 ## Method
