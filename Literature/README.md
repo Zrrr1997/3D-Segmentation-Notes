@@ -21,7 +21,7 @@
 | [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | MICCAI (2011) |  |
 | [(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf) | :heavy_check_mark: | | none | none | | | | | :heavy_check_mark: | NIPS (2011) | [code](https://github.com/HiLab-git/SimpleCRF) |
 | [(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | MICCAI (2015) | |
-| [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | Medical Image Analysis (MEDIMA) (2016) | [code](https://github.com/gift-surg/SlicSeg) |
+| [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | Medical Image Analysis (MedIA) (2016) | [code](https://github.com/gift-surg/SlicSeg) |
 | [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | EMBC (2016) | [code](http://www.itksnap.org/pmwiki/pmwiki.php?n=SourceCode.SourceCode) |
 | [(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1) | :heavy_check_mark: | | none | none |  |  | | | | ICIP (2017) | |
 
@@ -43,39 +43,25 @@
 | [(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf) | :heavy_check_mark: | | pixel-masks | Cityscapes | :heavy_check_mark: | | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | [code](https://github.com/fidler-lab/polyrnn-pp) |
 | [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) | :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 17 volumes a 624 slices | :heavy_check_mark: | | | :heavy_check_mark: | | TPAMI (2018) | [code](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS) |
 | [(2018): Guide Me: Interacting with Deep Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Rupprecht_Guide_Me_Interacting_CVPR_2018_paper.pdf) | :heavy_check_mark: |  | pixel-masks | VOC 2012 or COCO-Stuff | | only prediction | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | |
-| [(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) | :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 2D - 546 MR images / 3D - BRATS (274 scans)| | only prediction | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | |
-
-[(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
-
-[(2018): Iterative Interaction Training for Segmentation Editing Networks](https://arxiv.org/pdf/1807.08555.pdf)
-
-[(2018): Interactive Image Segmentation with Latent Diversity](https://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Interactive_Image_Segmentation_CVPR_2018_paper.pdf)
-
-[(2018): Iteratively trained interactive segmentation](https://arxiv.org/pdf/1805.04398.pdf)
-
-[(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf)
-
-[(2019): A fully convolutional two-stream fusion network for interactive image segmentation](https://arxiv.org/pdf/1807.02480.pdf)
-
-[(2019): Interactive deep editing framework for medical image segmentation](https://link.springer.com/chapter/10.1007/978-3-030-32248-9_37)
-
-[(2019): Content-Aware Multi-Level Guidance for Interactive Instance Segmentation](https://openaccess.thecvf.com/content_CVPR_2019/papers/Majumder_Content-Aware_Multi-Level_Guidance_for_Interactive_Instance_Segmentation_CVPR_2019_paper.pdf)
-
-[(2019): Interactive Image Segmentation via Backpropagating Refinement Scheme](https://openaccess.thecvf.com/content_CVPR_2019/papers/Jang_Interactive_Image_Segmentation_via_Backpropagating_Refinement_Scheme_CVPR_2019_paper.pdf)
-
-[(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
-
-[(2020): Iteratively-Refined Interactive 3D Medical Image Segmentation with Multi-Agent Reinforcement Learning](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liao_Iteratively-Refined_Interactive_3D_Medical_Image_Segmentation_With_Multi-Agent_Reinforcement_Learning_CVPR_2020_paper.pdf)
-
-[(2020): f-BRS: Rethinking Backpropagating Refinement for Interactive Segmentation](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sofiiuk_F-BRS_Rethinking_Backpropagating_Refinement_for_Interactive_Segmentation_CVPR_2020_paper.pdf)
-
-[(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481)
-
-[(2022): An Efficient Interactive Multi-label Segmentation Tool for 2D and 3D Medical Images using Fully Connected Conditional Random Field](https://www.sciencedirect.com/science/article/abs/pii/S0169260721006088?casa_token=XAsUoRmNlucAAAAA:qkbVKoptJDfiJM6U8_uUffEiOR_MRNeFyT7jBZ7HgIaTlPDIMxUmxT47WFUUrTRWIC3goEiQmAE)
+| [(2018): Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) | :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 2D - 546 MR images / 3D - BRATS (274 scans) | :heavy_check_mark: | :heavy_check_mark: last layers | uncertainty in loss | :heavy_check_mark: | zero-shot binary | Transactions on medical imaging (T-MI) (2018) | |
+| [(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf) | :heavy_check_mark: | | pixel-masks | VOC 2012 or COCO 2014 |  | |  | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | [code](https://github.com/scaelles/DEXTR-PyTorch) |
+| [(2018): Iterative Interaction Training for Segmentation Editing Networks](https://arxiv.org/pdf/1807.08555.pdf) |  :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 23 patients a 15-20 MR slices | :heavy_check_mark: | |  | :heavy_check_mark: | :heavy_check_mark: | MLMI (2018) - MICCAI workshop | [code](https://github.com/gbredell/interCNN) |
+| [(2018): Interactive Image Segmentation with Latent Diversity](https://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Interactive_Image_Segmentation_CVPR_2018_paper.pdf) |  :heavy_check_mark: |  | pixel-masks | SBD |  | only prediction |  | :heavy_check_mark: | zero-shot binary | CVPR (2018) | [code](https://github.com/isl-org/Intseg) |
+| [(2018): Iteratively trained interactive segmentation](https://arxiv.org/pdf/1805.04398.pdf) |  :heavy_check_mark: |  | pixel-masks | VOC 2012 or COCO (ImageNet) |  |  |  | :heavy_check_mark: | zero-shot binary | BMVC (2018) | [code](https://github.com/sabarim/itis) |
+| [(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf) |  :heavy_check_mark: |  | pixel-masks | 30 CT volumes | :heavy_check_mark:  |  |  | :heavy_check_mark: | zero-shot binary | arXiv |  |
+| [(2019): A fully convolutional two-stream fusion network for interactive image segmentation](https://arxiv.org/pdf/1807.02480.pdf) |  :heavy_check_mark: |  | pixel-masks | VOC 2012 |  |  |  | :heavy_check_mark: | zero-shot binary | Neural Networks (2019) | [code](https://github.com/cyh4/FCTSFN)  |
+| [(2019): Interactive deep editing framework for medical image segmentation](https://link.springer.com/chapter/10.1007/978-3-030-32248-9_37) |  :heavy_check_mark: | :heavy_check_mark:  | pixel-masks | BRATS  | :heavy_check_mark: |  |  | :heavy_check_mark: | | MICCAI (2019) | [code](https://github.com/DLwbm123/OCMIST)  |
+| [(2019): Content-Aware Multi-Level Guidance for Interactive Instance Segmentation](https://openaccess.thecvf.com/content_CVPR_2019/papers/Majumder_Content-Aware_Multi-Level_Guidance_for_Interactive_Instance_Segmentation_CVPR_2019_paper.pdf) |  :heavy_check_mark: | | pixel-masks | VOC 2012  |  |  |  |  | :heavy_check_mark:  | CVPR (2019) | |
+| [(2019): Interactive Image Segmentation via Backpropagating Refinement Scheme](https://openaccess.thecvf.com/content_CVPR_2019/papers/Jang_Interactive_Image_Segmentation_via_Backpropagating_Refinement_Scheme_CVPR_2019_paper.pdf)  |  :heavy_check_mark: | | pixel-masks | SBD  |  | :heavy_check_mark: |  | :heavy_check_mark: | zero-shot binary  | CVPR (2019) | [code](https://github.com/wdjang/BRS-Interactive_segmentation) |
+| [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf) |  :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 72 fetus MRI scans  | :heavy_check_mark: | | :heavy_check_mark: | :heavy_check_mark: |  | MICCAI (2020) | [code](https://github.com/HiLab-git/UGIR) |
+| [(2020): Iteratively-Refined Interactive 3D Medical Image Segmentation with Multi-Agent Reinforcement Learning](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liao_Iteratively-Refined_Interactive_3D_Medical_Image_Segmentation_With_Multi-Agent_Reinforcement_Learning_CVPR_2020_paper.pdf) |  :heavy_check_mark: | :heavy_check_mark: | pixel-masks | BRATS, MM-WHS, NCI  | :heavy_check_mark: | only prediction |  | RL |  | CVPR (2020) |  |
+| [(2020): f-BRS: Rethinking Backpropagating Refinement for Interactive Segmentation](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sofiiuk_F-BRS_Rethinking_Backpropagating_Refinement_for_Interactive_Segmentation_CVPR_2020_paper.pdf) |  :heavy_check_mark: |  | pixel-masks | SBD  |  | :heavy_check_mark: |  | :heavy_check_mark: | zero-shot binary | CVPR (2020) | [code](https://github.com/saic-vul/fbrs_interactive_segmentation) |
+| [(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481) |  :heavy_check_mark: | :heavy_check_mark:  | pixel-masks | 2D - 20621 scans / 3D - 170 MR scans  | :heavy_check_mark: | only prediction |  | :heavy_check_mark: | zero-shot binary | Medical Image Analysis (MedIA) (2021) | [code](https://github.com/HiLab-git/MIDeepSeg) | 
+| [(2022): An Efficient Interactive Multi-label Segmentation Tool for 2D and 3D Medical Images using Fully Connected Conditional Random Field](https://www.sciencedirect.com/science/article/abs/pii/S0169260721006088?casa_token=XAsUoRmNlucAAAAA:qkbVKoptJDfiJM6U8_uUffEiOR_MRNeFyT7jBZ7HgIaTlPDIMxUmxT47WFUUrTRWIC3goEiQmAE) |  :heavy_check_mark: | :heavy_check_mark:  | none | none | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | Computer Methods and Programs in Biomedicine (2022) | [code](http://www.cs.nott.ac.uk/~pszxc/)  (password:
+iseg2020) | 
 
 
-# Repos
-[CRF Tutorial](https://github.com/roym899/crf_segmentation_tutorial/blob/master/tutorial.pdf) - Good explanation of the *feature vector* of a pixel
+
 
 
 
