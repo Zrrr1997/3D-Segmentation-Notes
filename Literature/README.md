@@ -76,6 +76,8 @@
 
 [(2019): A fully convolutional two-stream fusion network for interactive image segmentation](https://arxiv.org/pdf/1807.02480.pdf)
 
+[(2019): Interactive deep editing framework for medical image segmentation](https://link.springer.com/chapter/10.1007/978-3-030-32248-9_37)
+
 [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
 
 [(2020): Iteratively-Refined Interactive 3D Medical Image Segmentation with Multi-Agent Reinforcement Learning](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liao_Iteratively-Refined_Interactive_3D_Medical_Image_Segmentation_With_Multi-Agent_Reinforcement_Learning_CVPR_2020_paper.pdf)

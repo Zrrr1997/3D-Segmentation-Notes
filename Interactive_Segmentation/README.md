@@ -835,6 +835,43 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Whereas user interaction-transoforms do not include such fine-grained information
 -	![](../images/two-stream-arch.png)
 
+# Interactive Deep Editing (2019) 
+
+## Related work
+-	Automatic methods' accuracy is limited due to the complexity of medical images 
+-	Active learning (Suggestive Annotation) - doctors still need to participate in the training stage
+-	DIOS and RIS-Net focus on the segmentation rather than editing the existing segmentation
+-	BIFSeg, DeepIGeoS - the prediction result of each round is fed back ino the netowrk
+	-	This may cause the network to over-fit on this channel, making it difficult for the interaction to affect existing segmentation
+
+## Method
+-	Two models 
+	-	Automatic segmentation network
+		-	Trained end-to-end to segment
+		-	The training data is then transformed with the automatic model's predictions
+		-	User interactions for each sample are simulated 
+			-	(interaction, predcition) pairs are fed to the editing network
+	-	Segmentation editing network
+		-	The network takes the user edit + current segmentation image and refines the segmentation iteratively until the user is satisfied
+-	![](../images/interactive-deep-editing.png)
+-	Three interaction methods
+	-	Selection tool
+		-	Aims to click at a large missegmented region and fill it or delete it
+		-	Simulation of user interaction:
+			-	S_auto - S_gt produces a number of connected missegmented regions
+			-	A number of erosion operations are applied to them and if the regions are large enough, a voxel is sampled as a user click
+	-	Brush stroke
+		-	Used for small corrections (usually around unclear edges)
+		-	Simulation of user interaction:
+			-	The slice with the largest 2D segmented region is found
+			-	The points with the largest distance in this region are sampled
+			-	The shortest disance between them is used as a user scribble
+	-	Adjustment tool
+		-	Intelligently expand or shrink the segmentation boundary
+		-	Simulation of user interaction:
+			-	The scalar is computed by (V_over - V_under) / V_gt 
+				-	V_over is the volume of the over-segmented, V_under of the under-segmented and V_gt of the GT regions
+
 
 # UGIR (2020)
 
