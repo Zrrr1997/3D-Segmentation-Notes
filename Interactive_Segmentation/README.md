@@ -897,6 +897,41 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 			-	The scalar is computed by (V_over - V_under) / V_gt 
 				-	V_over is the volume of the over-segmented, V_under of the under-segmented and V_gt of the GT regions
 
+# Content-Aware Multi-Level Guidance (2019)
+
+## Related work
+-	Intelligent Scissor and snakes use only boundary information
+	-	Fare poorly on weak edges
+-	CNNs' high-level representations reduce the number of interactions needed
+-	Latent diversity, two-stream, DIOS (euclidean) and ITIS, DEXTR, Interactive VOS (gaussian) guidance maps
+	-	Guidance maps disregard image consistencies
+		-	Colour, local contours, textures 
+
+## Method
+-	Guidance maps are typically distance-based
+	-	Too localized
+	-	Non-informative
+-	Authors propose to use **content-aware** guidance maps to leverage the hierarchical structural information present in an image
+	-	A good guidance map is much more important than the backbone (VGG vs. DeepLab)
+	-	A guidance map should maximize the information which can be harnessed from user-provided clicks (not only the location)
+-	Their algorithm roughly estimates the scale of the object based on the user-provided input
+-	Pros: Can be combined with any previous work with guidance maps
+-	Low level guidance maps - Superpixels
+	-	User-provided clicks for a pixel are propagated to the entire superpixel
+	-	Other superpixels are assigned guidance values according to the centroid-distances of the superpixels
+-	High level guidance maps - Region-based object proposals
+	-	Superpixels can be grouped together perceptually into category-independent object proposals
+-	Scale guidance maps
+	-	Specifying the scale explicitly leads to an improvement in performance
+	-	Truncate distances exceeding some factor of the scale of the selected object
+-	![](../images/content-aware.png)
+-	User interactions are simulated during training
+	-	The same way as in DIOSwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwP
+## Results
+-	Gaussian and Euclidean maps are too simple and do not fully leverage structures present in the image
+	-	They also do not account for the scale of the object during interaction (only location)
+-	Iterative training is also beneficial 
+
 
 # UGIR (2020)
 
