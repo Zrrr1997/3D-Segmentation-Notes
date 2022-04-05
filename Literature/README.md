@@ -22,16 +22,14 @@
 | [(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf) | :heavy_check_mark: | | none | none | | | | | :heavy_check_mark: | NIPS (2011) | [code](https://github.com/HiLab-git/SimpleCRF) |
 | [(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | MICCAI (2015) | |
 | [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | Medical Image Analysis (MEDIMA) (2016) | [code](https://github.com/gift-surg/SlicSeg) |
-| [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA) | x | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | EMBC (2016) | [code](http://itksnap.org) |
+| [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | EMBC (2016) | [code](http://www.itksnap.org/pmwiki/pmwiki.php?n=SourceCode.SourceCode) |
 
 
-[(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
-
-
-
-
-
-[(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf)
+# Interactive Segmentation - CNN Methods
+| Paper | Interactive | 3D | Labels | Training data | Medical images | Online | Active Learning | Deep Learning | Multilabel | Conference | Code |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf) | | | pixel-masks | VOC 2012 or COCO  | | | | :heavy_check_mark: | :heavy_check_mark: | ICCV (2015) | [code](https://github.com/torrvision/crfasrnn) |
+| [(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf) | | | scribbles | VOC 2012 | | | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2016) | [dataset](https://paperswithcode.com/dataset/scribblesup) |
 
 [(2016): Deep Interactive Object Selection](https://openaccess.thecvf.com/content_cvpr_2016/papers/Xu_Deep_Interactive_Object_CVPR_2016_paper.pdf)
 
