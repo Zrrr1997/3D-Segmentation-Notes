@@ -36,23 +36,14 @@
 | [(2016): DeepMedic for Brain Tumor Segmentation](https://spiral.imperial.ac.uk/bitstream/10044/1/50790/2/kamnitsas2016brats.pdf) | | :heavy_check_mark: | pixel-masks | BRATS 2016 | :heavy_check_mark: | | | :heavy_check_mark: | | Medical Image Analysis (2016) | [code-updated](https://github.com/deepmedic/deepmedic) |
 | [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw) | :heavy_check_mark: | no, but applied to each slice | pixel-masks | 55 fetus MRI scans | :heavy_check_mark: | | | :heavy_check_mark: | | Transactions on medical imaging (T-MI) (2017) | |
 | [(2017): Annotating Object Instances with a Polygon-RNN](https://openaccess.thecvf.com/content_cvpr_2017/papers/Castrejon_Annotating_Object_Instances_CVPR_2017_paper.pdf) | :heavy_check_mark: | | boundary polygons | Cityscapes | | | | :heavy_check_mark: | | CVPR (2017) | [code](https://github.com/AidanRocke/vertex_prediction) [code-2](https://github.com/AlexMa011/pytorch-polygon-rnn) |
-
-[(2017): UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model](https://arxiv.org/pdf/1709.03450.pdf)
-
-[(2017): Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation](https://arxiv.org/pdf/1706.04737.pdf)
-
-[(2017): Deep grabcut for object selection](https://arxiv.org/pdf/1707.00243.pdf)
-
-[(2017): Regional Interactive Image Segmentation Networks](https://openaccess.thecvf.com/content_iccv_2017/html/Liew_Regional_Interactive_Image_ICCV_2017_paper.html)
-
-[(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf)
-
-[(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) 
-[repo](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS)
-
-[(2018): Guide Me: Interacting with Deep Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Rupprecht_Guide_Me_Interacting_CVPR_2018_paper.pdf) 
-
-[(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) 
+| [(2017): UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model](https://arxiv.org/pdf/1709.03450.pdf) | :heavy_check_mark: | | pixel-masks | 6375 CT slices | :heavy_check_mark: | | | :heavy_check_mark: | | VCBM (2017) | |
+| [(2017): Suggestive Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation](https://arxiv.org/pdf/1706.04737.pdf) | | no, but could be | pixel-masks | 85 Gland images, 37 lymph node images | :heavy_check_mark: | | :heavy_check_mark: | :heavy_check_mark: | no, but could be | MICCAI (2017) | [code](https://github.com/Sheshansh/SuggestiveAnnotation) |
+| [(2017): Deep grabcut for object selection](https://arxiv.org/pdf/1707.00243.pdf) | :heavy_check_mark: | | pixel-masks | VOC 2012 or COCO | | | | :heavy_check_mark: | :heavy_check_mark: | BMVC (2017) | [code](https://github.com/jfzhang95/DeepGrabCut-PyTorch) |
+| [(2017): Regional Interactive Image Segmentation Networks](https://openaccess.thecvf.com/content_iccv_2017/html/Liew_Regional_Interactive_Image_ICCV_2017_paper.html) | :heavy_check_mark: | | pixel-masks | VOC 2012 | | | | :heavy_check_mark: | zero-shot binary | ICCV (2017) | |
+| [(2018): Efficient Interactive Annotation of Segmentation Datasets with Polygon-RNN++](https://openaccess.thecvf.com/content_cvpr_2018/papers/Acuna_Efficient_Interactive_Annotation_CVPR_2018_paper.pdf) | :heavy_check_mark: | | pixel-masks | Cityscapes | :heavy_check_mark: | | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | [code](https://github.com/fidler-lab/polyrnn-pp) |
+| [(2018): DeepIGeoS: A Deep Interactive Geodesic Framework for Medical Image Segmentation](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8370732) | :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 17 volumes a 624 slices | :heavy_check_mark: | | | :heavy_check_mark: | | TPAMI (2018) | [code](https://github.com/HITLAB-DeepIGeoS/DeepIGeoS) |
+| [(2018): Guide Me: Interacting with Deep Networks](https://openaccess.thecvf.com/content_cvpr_2018/papers/Rupprecht_Guide_Me_Interacting_CVPR_2018_paper.pdf) | :heavy_check_mark: |  | pixel-masks | VOC 2012 or COCO-Stuff | | only prediction | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | |
+| [(2018): BIFSeg Interactive Medical Image Segmentation Using Deep Learning With Image-Specific Fine Tuning](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8270673) | :heavy_check_mark: | :heavy_check_mark: | pixel-masks | 2D - 546 MR images / 3D - BRATS (274 scans)| | only prediction | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2018) | |
 
 [(2018): Deep Extreme Cut: From Extreme Points to Object Segmentation](https://openaccess.thecvf.com/content_cvpr_2018/papers/Maninis_Deep_Extreme_Cut_CVPR_2018_paper.pdf)
 
