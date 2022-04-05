@@ -20,12 +20,16 @@
 | [(2010): Geodesic Star Convexity for Interactive Image Segmentation](https://ieeexplore.ieee.org/iel5/5521876/5539770/05540073.pdf?casa_token=R57_593asiMAAAAA:TnQKlRww0qDa6w4NkqC033rYEmSqNra57UIdVnEDoT4fWoZX-kaVLQAn0_sxPN-T95YpoF5lIg) | :heavy_check_mark: | | none | none | | :heavy_check_mark: | | | | CVPR (2010) |  |
 | [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | MICCAI (2011) |  |
 | [(2011): Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials](https://proceedings.neurips.cc/paper/2011/file/beda24c1e1b46055dff2c39c98fd6fc1-Paper.pdf) | :heavy_check_mark: | | none | none | | | | | :heavy_check_mark: | NIPS (2011) | [code](https://github.com/HiLab-git/SimpleCRF) |
+| [(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | MICCAI (2015) | |
+| [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | Medical Image Analysis (MEDIMA) (2016) | [code](https://github.com/gift-surg/SlicSeg) |
+| [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA) | x | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | EMBC (2016) | [code](http://itksnap.org) |
+
 
 [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf)
 
-[(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf)
 
-[(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA)
+
+
 
 [(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf)
 
