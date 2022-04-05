@@ -926,11 +926,69 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Truncate distances exceeding some factor of the scale of the selected object
 -	![](../images/content-aware.png)
 -	User interactions are simulated during training
-	-	The same way as in DIOSwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwP
+	-	The same way as in DIOS
 ## Results
 -	Gaussian and Euclidean maps are too simple and do not fully leverage structures present in the image
 	-	They also do not account for the scale of the object during interaction (only location)
 -	Iterative training is also beneficial 
+
+# BRS (2019)
+
+## Motivation
+-	Even clicked pixels by the users might be assigned incorrect labels by a model
+	-	No way of guaranteeing that a DNN will be constricted
+-	The proposed BRS backpropagation iteratively performs until all clicked pixels have correct labels
+
+## Related work
+-	Scribbles generate more detailed object masks than bounding boxes do
+	-	They also allow a user to provide scribbles several times until a satisfactory result is obtained
+-	Backpropagation for activations - process that conveys data through network layers backwardly
+	-	Visualize characteristics of DNNs
+	-	Texture synthesis, Image style transfer
+
+## Method
+-	Corrective energy
+	-	MSE of user annotated label vs. output label of the network (clicks must match output)
+	-	![](../images/corrective_energy.png)
+-	Inertial energy
+	-	Prevents excessive perturbations in the interaction maps
+	-	MSE between updated interaction maps and initial interactions maps
+-	Points for interaction are sampled for training
+	-	Using the k-medioids algorithm
+-	Model is a two-phase (coarse/fine) decoder network
+	-	Both the coarse and fine decoder have a prediction head where the cross-entropy loss is applied
+-	BRS 
+	-	The initial interaction maps are not enough to make the model yield correct labels in the clicks
+	-	The interaction maps are modified
+		-	The **maps themselves** are optimized
+
+
+
+# f-BRS (2020) - Extension of BRS
+
+## Related work
+- 	Traditional methods use built-in heuristics and do not use semantic priors to full extent
+	-	Hence, they require a large amount of user interaction
+-	DIOS, Latent Diversity, DEXTR tend to overuse semantic information
+	-	Hence, they perform poorly on unseen objects
+-	BRS combines optimization with deep learning
+	-	Enforces consistency of the resulting object mask with user-provided clicks
+	-	Con: Multiple forward and backward passes are needed for a single user input 
+
+
+## Method
+-	Feature backpropagating refinement scheme (f-BRS)
+	-	Improves the refinement when given hard examples
+	-	Only requires running forward and backward passes through the last several layers
+-	Adding f-BRS to a model forces it to incorporate the user's clicks and solve the problem faster
+	-	Previous work has samples which do not get better however many clicks you add
+-	L-BFGS is used as an optimizer
+-	![](../images/f-BRS.png)
+-	The idea is to find which parameters lead to an improvement when scaling and shifting the intermediate features
+-	Zoom-In 
+	-	After three clicks the segmented region is cropped 
+		-	Only the cropped image is fed to the segmentation model for further interactions 
+
 
 
 # UGIR (2020)

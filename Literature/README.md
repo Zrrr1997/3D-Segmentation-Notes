@@ -82,9 +82,13 @@
 
 [(2019): Content-Aware Multi-Level Guidance for Interactive Instance Segmentation](https://openaccess.thecvf.com/content_CVPR_2019/papers/Majumder_Content-Aware_Multi-Level_Guidance_for_Interactive_Instance_Segmentation_CVPR_2019_paper.pdf)
 
+[(2019): Interactive Image Segmentation via Backpropagating Refinement Scheme](https://openaccess.thecvf.com/content_CVPR_2019/papers/Jang_Interactive_Image_Segmentation_via_Backpropagating_Refinement_Scheme_CVPR_2019_paper.pdf)
+
 [(2020): Uncertainty-Guided Efficient Interactive Refinement of Fetal Brain Segmentation from Stacks of MRI Slices](https://arxiv.org/pdf/2007.00833.pdf)
 
 [(2020): Iteratively-Refined Interactive 3D Medical Image Segmentation with Multi-Agent Reinforcement Learning](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liao_Iteratively-Refined_Interactive_3D_Medical_Image_Segmentation_With_Multi-Agent_Reinforcement_Learning_CVPR_2020_paper.pdf)
+
+[(2020): f-BRS: Rethinking Backpropagating Refinement for Interactive Segmentation](https://openaccess.thecvf.com/content_CVPR_2020/papers/Sofiiuk_F-BRS_Rethinking_Backpropagating_Refinement_for_Interactive_Segmentation_CVPR_2020_paper.pdf)
 
 [(2021): MIDeepSeg: Minimally Interactive Segmentation of Unseen Objects from Medical Images Using Deep Learning](https://www.sciencedirect.com/science/article/pii/S1361841521001481)
 
