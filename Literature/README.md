@@ -13,16 +13,11 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [(1998): Interactive Segmentation with Intelligent Scissors](https://d1wqtxts1xzle7.cloudfront.net/70764853/gmip.1998.048020210930-31907-ipyamv-with-cover-page-v2.pdf?Expires=1648471802&Signature=HFrf503Ivro9dCbeuF56iNxMi2uE7~kPM-2TTWAlPB9JGQR4ryJVhnSReGM~3SEWIunFzh4z~6y2sVOsEOkYD34rcLnIq6aBN8bHcIkWeCVTJB-~cH1H9Jcr9GQ5rCfM7m9RTUIz~e4yDN0rh71ABSFzZvTzJNzp5CTUt~ZBEft91G58y5f2RVln6QRWJywuFiYQJA~PvLvYzldT6CK98pdlvPZyxSOnUnmMqNxr5QX3tSTFEa3WoFbajyj0-liIuT8og8CpWaDEBPfQOnml7SkQxmJx1KTqm5J5V4etHPTUBI5VqWnoJ0PXMpdZUThVfBBy9tQlOtrymwiofuGilA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA) | :heavy_check_mark: |  | none | none | | | | | | GMIP, 1998 |  |
 | [(2001): Interactive Graph Cuts for Optimal Boundary & Region Segmentation of Objects in N-D Images](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=937505) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | ICCV, 2001 | [code](https://vision.cs.uwaterloo.ca/code) |
-| [(2004): “GrabCut” — Interactive Foreground Extraction using Iterated Graph Cuts](https://dl.acm.org/doi/pdf/10.1145/1015706.1015720?casa_token=B361ZlfabGgAAAAA:yho3D542s08qx0zQ-gTeoRuge6eXMqdomiUV75Eap1E5hmYV4fgFXVm1yqj5_y8Z5R83EV_5fXK23Q) | :heavy_check_mark: |  | none | none | | | | | | ACM, TOG (2004) | [code](https://github.com/Orcuslc/GrabCut) |
-
-
-[(2005): Lazy Snapping](https://dl.acm.org/doi/pdf/10.1145/1015706.1015719?casa_token=D6un7PlrIQYAAAAA:NobQ6GhWdf7CAdwalTmBPT1hmF7S1XFnbqf78oXtuPocpIizL188bhTV2QZBbMOXbBcD1pURWahBYQ)
-
-[(2005): “GrowCut” - Interactive Multi-Label N-D Image Segmentation By Cellular Automata](https://www.graphicon.ru/html/2005/proceedings/papers/VezhntvetsKonushin.pdf)
-
-[(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf)
-
-[(2010): Geodesic Star Convexity for Interactive Image Segmentation](https://ieeexplore.ieee.org/iel5/5521876/5539770/05540073.pdf?casa_token=R57_593asiMAAAAA:TnQKlRww0qDa6w4NkqC033rYEmSqNra57UIdVnEDoT4fWoZX-kaVLQAn0_sxPN-T95YpoF5lIg)
+| [(2004): “GrabCut” — Interactive Foreground Extraction using Iterated Graph Cuts](https://dl.acm.org/doi/pdf/10.1145/1015706.1015720?casa_token=B361ZlfabGgAAAAA:yho3D542s08qx0zQ-gTeoRuge6eXMqdomiUV75Eap1E5hmYV4fgFXVm1yqj5_y8Z5R83EV_5fXK23Q) | :heavy_check_mark: |  | none | none | | :heavy_check_mark: | | | | ACM, TOG (2004) | [code](https://github.com/Orcuslc/GrabCut) |
+| [(2004): Lazy Snapping](https://dl.acm.org/doi/pdf/10.1145/1015706.1015719?casa_token=D6un7PlrIQYAAAAA:NobQ6GhWdf7CAdwalTmBPT1hmF7S1XFnbqf78oXtuPocpIizL188bhTV2QZBbMOXbBcD1pURWahBYQ) | :heavy_check_mark: |  | none | none | | :heavy_check_mark: | | | | ACM, TOG (2004) | [code](https://github.com/sarkar1211/Lazy-Snapping) |
+| [(2005): “GrowCut” - Interactive Multi-Label N-D Image Segmentation By Cellular Automata](https://www.graphicon.ru/html/2005/proceedings/papers/VezhntvetsKonushin.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | :heavy_check_mark: | Graphicon (2005) | [code](https://github.com/nfaggian/growcut) |
+| [(2007): GeoS: Geodesic Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-540-88682-2_9.pdf) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | ECCV (2008) | [code-related](https://github.com/taigw/GeodisTK) |
+| [(2010): Geodesic Star Convexity for Interactive Image Segmentation](https://ieeexplore.ieee.org/iel5/5521876/5539770/05540073.pdf?casa_token=R57_593asiMAAAAA:TnQKlRww0qDa6w4NkqC033rYEmSqNra57UIdVnEDoT4fWoZX-kaVLQAn0_sxPN-T95YpoF5lIg) | :heavy_check_mark: | | none | none | | :heavy_check_mark: | | | | CVPR (2010) |  |
 
 [(2011): Active Learning for Interactive 3D Image Segmentation](https://link.springer.com/content/pdf/10.1007/978-3-642-23626-6_74.pdf)
 
