@@ -72,6 +72,8 @@
 
 [(2018): Interactive Image Segmentation with Latent Diversity](https://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Interactive_Image_Segmentation_CVPR_2018_paper.pdf)
 
+[(2018): Iteratively trained interactive segmentation](https://arxiv.org/pdf/1805.04398.pdf)
+
 [(2019): Interactive segmentation of medical images through fully convolutional neural networks](https://arxiv.org/pdf/1903.08205.pdf)
 
 [(2019): A fully convolutional two-stream fusion network for interactive image segmentation](https://arxiv.org/pdf/1807.02480.pdf)

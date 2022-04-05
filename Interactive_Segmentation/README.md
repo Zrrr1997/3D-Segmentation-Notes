@@ -156,6 +156,7 @@
 -	Using geodesic distance
 	-	For all pixels in the image, the shortest path connecting each point to the start centers creates a **geodesic forest**
 -	The user brush strokes can be used as star-centers
+-	Energy optimization solved globally through graph cut (problem is submodular)
 -	Evaluation through robot user
 
 # Active Learning (2011) 
@@ -783,6 +784,30 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Selection network is trained with cross-entropy on the proposed masks with the largest IoU
 
 
+# ITIS (2018)
+
+## Related work
+-	DIOS and RIS-Net use emulated click patterns during training
+	-	Simulation of what the user would do
+	-	Cons: the clicks are not dependent on the models' errors ---> strategy during training and testing are very different
+-	DEXTR requires exactly 4 clicks
+	-	It is difficult to refine the results is more clicks are necessary
+
+## Method
+-	Click sampling is not based on heuristic, but it is done iteratively
+	-	Further clicks are added based on the previous **updated** segmentation results
+-	DeepLabv3 as backbone
+-	Input to the model are
+	-	Image + positive/negative Euclidean heatmaps from user clicks (same as DIOS) + existing estimate of the segmentation mask
+		-	Mask is encoded as Euclidean distance transform
+-	![](../images/ITIS.png)
+-	Click sampling
+	-	Initial clicks based on DIOS
+	-	Iterative clicks for refinement
+		-	Missegmented regions are clustered using connected component labeling
+		-	A pixel is sampled from the largest cluster 
+			-	With the maximum distance to the cluster boundary and the maximum distance to all other clicks in the cluster (if there are any)
+	-	
 
 # IFSeg (2019)
 
