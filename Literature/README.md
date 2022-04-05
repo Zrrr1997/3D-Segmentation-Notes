@@ -23,6 +23,7 @@
 | [(2015): Slic-Seg: slice-by-slice segmentation propagation of the placenta in fetal MRI using one-plane scribbles and online learning](https://link.springer.com/content/pdf/10.1007/978-3-319-24574-4_4.pdf) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | MICCAI (2015) | |
 | [(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287) | only first slice | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | Medical Image Analysis (MEDIMA) (2016) | [code](https://github.com/gift-surg/SlicSeg) |
 | [(2016): ITK-SNAP: An interactive tool for semi-automatic segmentation of multi-modality biomedical images](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7591443&casa_token=YuU-focC2zgAAAAA:Q7foBgW5lGRXRNx1tUA7_kP0xWX3082Qf_OSsYZV_vVRX6BYZoINTV1ErlzKYxz1I1QYQKOsnA) | :heavy_check_mark: | :heavy_check_mark: | none | none | :heavy_check_mark: | :heavy_check_mark: | | | | EMBC (2016) | [code](http://www.itksnap.org/pmwiki/pmwiki.php?n=SourceCode.SourceCode) |
+| [(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1) | :heavy_check_mark: | | none | none |  |  | | | | ICIP (2017) | |
 
 
 # Interactive Segmentation - CNN Methods
@@ -30,20 +31,11 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [(2015): CRF-RNN: Conditional Random Fields as Recurrent Neural Networks](https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Zheng_Conditional_Random_Fields_ICCV_2015_paper.pdf) | | | pixel-masks | VOC 2012 or COCO  | | | | :heavy_check_mark: | :heavy_check_mark: | ICCV (2015) | [code](https://github.com/torrvision/crfasrnn) |
 | [(2016): ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation](https://openaccess.thecvf.com/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf) | | | scribbles | VOC 2012 | | | | :heavy_check_mark: | :heavy_check_mark: | CVPR (2016) | [dataset](https://paperswithcode.com/dataset/scribblesup) |
-
-[(2016): Deep Interactive Object Selection](https://openaccess.thecvf.com/content_cvpr_2016/papers/Xu_Deep_Interactive_Object_CVPR_2016_paper.pdf)
-
-[(2016): DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://ieeexplore.ieee.org/iel7/34/8306529/07913730.pdf?casa_token=fdkNMc_wK3YAAAAA:_he6kDPbeCglP1MF8gbqT6d5X1-DjwaquDx0jKh4o_eJr-GsgcvoKpUguxoHu0u4csrshEKE0w)
-
-[(2016): Slic-Seg: A minimally interactive segmentation of the placenta from sparse and motion-corrupted fetal MRI in multiple views](https://www.sciencedirect.com/science/article/pii/S1361841516300287)
-
-[(2016): DeepMedic for Brain Tumor Segmentation](https://spiral.imperial.ac.uk/bitstream/10044/1/50790/2/kamnitsas2016brats.pdf)
-
-[(2017): LOOSECUT: INTERACTIVE IMAGE SEGMENTATION WITH LOOSELY BOUNDED BOXES](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8296900&casa_token=MFjUjSWuKgoAAAAA:_IakoJNEi07iXBqPGYqJumjgfJydddxFnOhu1rluRsnUAttAY70C7Rm5ssXBG2DEeGEJOC6dqA&tag=1)
-
-[(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw)
-
-[(2017): Annotating Object Instances with a Polygon-RNN](https://openaccess.thecvf.com/content_cvpr_2017/papers/Castrejon_Annotating_Object_Instances_CVPR_2017_paper.pdf)
+| [(2016): Deep Interactive Object Selection](https://openaccess.thecvf.com/content_cvpr_2016/papers/Xu_Deep_Interactive_Object_CVPR_2016_paper.pdf) | :heavy_check_mark: | | pixel-masks | VOC 2012 | | | | :heavy_check_mark: | zero-shot binary | CVPR (2016) | |
+| [(2017): DeepLab: Semantic Image Segmentation with Deep Convolutional Nets, Atrous Convolution, and Fully Connected CRFs](https://ieeexplore.ieee.org/iel7/34/8306529/07913730.pdf?casa_token=fdkNMc_wK3YAAAAA:_he6kDPbeCglP1MF8gbqT6d5X1-DjwaquDx0jKh4o_eJr-GsgcvoKpUguxoHu0u4csrshEKE0w) | | | pixel-masks | VOC 2012 (ImageNet) | | | | :heavy_check_mark: | zero-shot binary | TPAMI (2017) | [code](https://github.com/tensorflow/models/tree/master/research/deeplab) |
+| [(2016): DeepMedic for Brain Tumor Segmentation](https://spiral.imperial.ac.uk/bitstream/10044/1/50790/2/kamnitsas2016brats.pdf) | | :heavy_check_mark: | pixel-masks | BRATS 2016 | :heavy_check_mark: | | | :heavy_check_mark: | | Medical Image Analysis (2016) | [code-updated](https://github.com/deepmedic/deepmedic) |
+| [(2017): DeepCut: Object Segmentation From Bounding Box Annotations Using Convolutional Neural Networks](https://ieeexplore.ieee.org/iel7/42/4359023/07739993.pdf?casa_token=3aI8RBhEM-EAAAAA:jeQxPVd9qnr__JWl8z8BPFS5QSvCqFLaCVIljjZXb2OT7ZriQQ4VeRKxJ0RG7N2ZcBEYEKuelw) | :heavy_check_mark: | no, but applied to each slice | pixel-masks | 55 fetus MRI scans | :heavy_check_mark: | | | :heavy_check_mark: | | Transactions on medical imaging (T-MI) (2017) | |
+| [(2017): Annotating Object Instances with a Polygon-RNN](https://openaccess.thecvf.com/content_cvpr_2017/papers/Castrejon_Annotating_Object_Instances_CVPR_2017_paper.pdf) | :heavy_check_mark: | | boundary polygons | Cityscapes | | | | :heavy_check_mark: | | CVPR (2017) | [code](https://github.com/AidanRocke/vertex_prediction) [code-2](https://github.com/AlexMa011/pytorch-polygon-rnn) |
 
 [(2017): UI-Net: Interactive Artificial Neural Networks for Iterative Image Segmentation Based on a User Model](https://arxiv.org/pdf/1709.03450.pdf)
 
