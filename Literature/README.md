@@ -1,6 +1,7 @@
 # Surveys
 
-|Year | Survey|
+| Year | Survey |
+| --- | --- | 
 |2018 | [A brief introduction to weakly supervised learning (2018)](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)|
 |2020 | [Medical Image Segmentation Using Deep Learning: A Survey (2020)](https://arxiv.org/pdf/2009.13120.pdf)|
 |2020 | [A survey of recent interactive image segmentation methods (2020)](https://link.springer.com/article/10.1007/s41095-020-0177-5)|
