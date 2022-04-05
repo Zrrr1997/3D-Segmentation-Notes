@@ -1,12 +1,10 @@
 # Surveys
 
-[A brief introduction to weakly supervised learning (2018)](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)
-
-[Medical Image Segmentation Using Deep Learning: A Survey (2020)](https://arxiv.org/pdf/2009.13120.pdf)
-
-[A survey of recent interactive image segmentation methods (2020)](https://link.springer.com/article/10.1007/s41095-020-0177-5)
-
-[Medical Image Segmentation With Limited Supervision: A Review of Deep Network Models (2021)](https://ieeexplore.ieee.org/iel7/6287639/9312710/09363892.pdf)
+|Year | Survey|
+|2018 | [A brief introduction to weakly supervised learning (2018)](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)|
+|2020 | [Medical Image Segmentation Using Deep Learning: A Survey (2020)](https://arxiv.org/pdf/2009.13120.pdf)|
+|2020 | [A survey of recent interactive image segmentation methods (2020)](https://link.springer.com/article/10.1007/s41095-020-0177-5)|
+|2021 | [Medical Image Segmentation With Limited Supervision: A Review of Deep Network Models (2021)](https://ieeexplore.ieee.org/iel7/6287639/9312710/09363892.pdf)|
 
 # Interactive Segmentation
 [(1998): Interactive Segmentation with Intelligent Scissors](https://d1wqtxts1xzle7.cloudfront.net/70764853/gmip.1998.048020210930-31907-ipyamv-with-cover-page-v2.pdf?Expires=1648471802&Signature=HFrf503Ivro9dCbeuF56iNxMi2uE7~kPM-2TTWAlPB9JGQR4ryJVhnSReGM~3SEWIunFzh4z~6y2sVOsEOkYD34rcLnIq6aBN8bHcIkWeCVTJB-~cH1H9Jcr9GQ5rCfM7m9RTUIz~e4yDN0rh71ABSFzZvTzJNzp5CTUt~ZBEft91G58y5f2RVln6QRWJywuFiYQJA~PvLvYzldT6CK98pdlvPZyxSOnUnmMqNxr5QX3tSTFEa3WoFbajyj0-liIuT8og8CpWaDEBPfQOnml7SkQxmJx1KTqm5J5V4etHPTUBI5VqWnoJ0PXMpdZUThVfBBy9tQlOtrymwiofuGilA__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
