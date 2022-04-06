@@ -1213,6 +1213,62 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	![](../images/crf-geodesic.png)
 
 
+# MONAI Label (2022)
+
+## Aim
+-	Forster research on semi-automatic label generation
+-	Empower researchers to develop novel annotation methods and make them readily available to other researchers and clinical staff for continuous evaluation of user experience and annotation performance. 
+
+## Related Work
+-	InterCNN - automatic networks have not reach a sufficient performance and **robustness** to be used in a clinical setting
+	-	Due to patient variation, acquisition differences, and image artifacts	
+-	DeepIGeoS, MIDeepSeg, BIFSeg, IterCNN are:
+	-	Fast, reliable and generalize well to unseen objects/structures
+	-	Produce accurate results with a few clicks
+-	Open-Source software packages
+	-	ITK-Snap - ORF
+	-	3D Slicer and MITK
+		-	DEXTR
+		-	Going to extremes
+		-	NVIDIA Clara AI-Assisted annotation extension
+		-	Region Growing
+		-	Level Sets
+	-	ilastik
+		-	Does not include the option of training deep convolutional networks, which puts this system in disadvantage to other tools
+	-	BioMedisa
+		-	Online platform for semi-automatic segmentation of large volumentric data
+		-	Specifically designed to work on a cluster of parallel computer achitectures
+			-	Not easy to use on a single and small GPU
+
+## Method
+-	Free and open-source platform
+	-	Supports locally installed (3DSlicer) and web-based (OHIF) frontends
+	-	Two active learning strategies
+	-	Interactive Labeling apps
+		-	DeepEdit (some new variant of IFSeg)
+			-	First half of training with zero-masks on the interactions
+			-	Second half of training with simulated interactions as in DIOS
+			-	For automatic inference - guidance maps can be set to zero
+			-	Or used with interactions from the user
+		-	DeepGrow (IFSeg)
+		-	Graph Cut 
+		-	Grab Cut
+		-	BIFSeg
+		-	GeoS
+	-	One automatic labeling
+		-	UNet
+	-	Active learning for training 3D seg. models
+		-	Random sampling, in-sequence sampling
+		-	Aleatoric (data)
+			-	Test time augmentation
+		-	Epistemic (knowledge) 
+			-	Allow the clinicians to segment the harder samples first
+			-	MC Dropout
+	-	How to develop a new app?
+		-	Define what models are using during annotation
+		-	How they learn from user interactions
+		-	How active learning is employed to shorten annotation time
+	-	Scribble-based methods are 12.5x faster than paint brush methods and 6.25x times faster than contour-based methods
 
 
 
