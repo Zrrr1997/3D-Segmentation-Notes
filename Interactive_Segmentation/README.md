@@ -1159,7 +1159,50 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Comparison to ITK-Snap, 3D Graph Cutsm DeepIGeoS, DIOS, DEXTR for 3D
 	-	DIOS - Deep Interaction Object Selection
 
+# Reviving Iterative Training - follow-up to f-BRS
 
+## Related Work
+-	Optimization schemes at inference-time are costly 
+	-	SOTA can be achieved without such optimizations, i.e. only feedforward models are needed
+-	Scribble-based methods use heuristics and complicated procedures
+	-	Hard to evaluate
+-	Exteme points are not intuitive nor flexible
+	-	Limited number of user interactions
+-	Click-based is the simples and has well-established training/evaluation protocols (DIOS, BRS, f-BRS, Continuous adaptation)
+-	BRS, f-BRS, continous adaptation use inference-time optimization procedures
+	-	Backward passes need to be implemented - not deployable on mobile devices
+	-	Optimization is redundant when large-scale diverse datasets are present
+		-	Choice of training dataset is crucial for the performance
+-	Disk encodings as guidance maps are better than distance maps
+	-	A new point only locally changes teh disk encodings
+		-	A global change in the distance map ---> it might confuse the network
+-	DEXTR, Content-aware, Multiseg, BRS, in-out guidance use BCE as loss function
+	-	Con: BCE treats all samples the same 
+		-	Slowing training - similar gradient for well classified and erroneous regions
+		-	Focal loss solves this but gradient becomes weaker with an increase of accuracy
+			-	Solution: Normalize Focal Loss
+-	Majority of interactive methods use SBD or Pascal VOC for training
+	-	Classes cover only general types of objects --- limitations on the variety of predictable classes
+
+## Method
+-	Feedforward model for click-based segmentation which employs the segmentation masks from previous steps
+	-	Start with an external mask and correct it
+-	Three way of encoding guidance maps as an input
+	-	DMF - Concatenating map + image and adding two layers before the backbone
+	-	Conv1E - simply adding one channel to the first layer of the backbone
+	-	Conv1S - passing the guidance map through a layer which resizes as the same size as the output of the first layer of the backbone
+		-	Element-wise addition with the output of the first layer
+		-	Allows to set different learning rates for the two inputs (modularity)
+-	Iterative training as in ITIS
+	-	Change - not sampled from a mislabeled region, but from a mislabeled region with applied erosion
+		-	Using the cluster center leads to NoC overfitting in ITIS
+-	Incorporate output segmentation masks from previous interactions as input for next correction
+	-	Third channel to second modular network (Conv1E)
+-	**Serious claim**: Authors argue that the further development of interactive segmentation models relies **heavily** on the training data
+	-	COCO + LVIS is the best choice for a training set of interactive models
+-	SOTA on all common interactive segmentation benchmarks (GrabCut, SBD, Pascal VOC, Berkeley, DAVIS)
+-	Keyword takeaways:
+	-	HRNEt, COCO + LVIS, Disk encodings, Conv1E, Iterative training (not cluster centers), Mask from previous step, Normalized Focal Loss
 
 
 # Simple CRF + Geodesic Distance (2022)
