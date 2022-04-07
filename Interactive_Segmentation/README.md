@@ -962,6 +962,43 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	The interaction maps are modified
 		-	The **maps themselves** are optimized
 
+# All regions jointly (2019)
+
+## Related Work
+-	Advantage against Two-Stream, Interactive boundary, Latent Diversity, RIS-Net, ITIS, DEXTR, DIOS
+	-	User can focus on largest error on whole image
+	-	Shares annotations across multiple object and stuff regions (whole image is utilized)
+	-	A pixel is assigned exactly one label
+	-	Stuff is also annotated in the process
+
+## Method
+-	First annotator marks extreme points
+	-	The object can be cropped with the implicit bounding box
+	-	Then the model generates a segmentation map
+	-	The annotator then makes corrections using scribbles
+		-	Scribbles mean either shrinkage or expansion of neighbouring regions
+		-	Regions compete for space
+			-	Softamax over all region maps (one map per object) + argmax
+		-	Scribbles are just 3 pixels wide 
+		-	Extreme points are 6 pixels in diameter
+	-	The segmentation map is updated (repeat last two until annotator is satisfied)
+-	Full image segmentation
+	-	All objects and stuff in the image must be segmented
+-	Mask-RCNN is adapted to **interactive** segmentation
+	-	RPN is bypassed, as the bboxes from the extreme points are given
+	-	Points and scribbles are just concatenated to the RoI features in the input
+-	Model trained with categorical cross-entropy (CCE) or simply known as pixelwise cross-entropy
+	-	Each pixel is weighted by the inverse of the smallest bounding box containing it
+	-	So that large regions do not dominate in the loss function
+-	![](../images/all-regions-jointly.png)
+-	Simulation of correction scribbles during training
+	-	First find the erronous regions which would benefit the most for training (leads to the largest improvement)
+	-	Then sample a point on the boundary of the predicted object to the erronous zone and then two more points outside
+		-	Create scribble with Bezier Curve
+		-	Simulate 10 times and take the longest scribble, which is entirely inside the GT mask (Bezier curves can deviate)
+	-	
+## Results
+-	Similar performance to DEXTR on single-object segmentation
 
 
 # f-BRS (2020) - Extension of BRS
