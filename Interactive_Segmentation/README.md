@@ -1159,7 +1159,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Comparison to ITK-Snap, 3D Graph Cutsm DeepIGeoS, DIOS, DEXTR for 3D
 	-	DIOS - Deep Interaction Object Selection
 
-# Reviving Iterative Training - follow-up to f-BRS
+# Reviving Iterative Training (2021) - follow-up to f-BRS
 
 ## Related Work
 -	Optimization schemes at inference-time are costly 
@@ -1203,6 +1203,42 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	SOTA on all common interactive segmentation benchmarks (GrabCut, SBD, Pascal VOC, Berkeley, DAVIS)
 -	Keyword takeaways:
 	-	HRNEt, COCO + LVIS, Disk encodings, Conv1E, Iterative training (not cluster centers), Mask from previous step, Normalized Focal Loss
+
+# Interactive FSL (IFSL) (2021)
+
+## Motivation
+-	First method for FSL + Interactive + Online learning
+
+## Related Work
+-	Supervised methods require extensive training data and detailed annotations
+-	FSL techniques lack further optimization of the target task
+-	There is a lack of pre-trained models for medical images
+	-	Natural and medical images have a substantial difference ---> large domain gap
+
+## Method
+-	Medical Prior-based Few-Shot Learning Network (MPrNet)
+	-	Uses 10 annotated samples as support images to guide the segmentation of query images
+-	Interactive Test-Time Optimization
+	-	Strenghten MPrNet on the fly
+-	![](../images/MPrNet.png)
+-	Spatial and Texture Branch
+	-	Support images
+-	Query Branch
+	-	Query images
+-	Spatial branch is a sequence of 4 (5x5) convs
+-	Queary and Texture branches are VGG 
+-	Information Interaction 
+	-	(Spatial ---> Query)
+		-	Guide the low-to-high level feature extraction of query images (spatial information should help)
+		-	Channel Squeeze and Spatial Excitation (sSE)
+			-	Squeeze feature map along the channel for spatial attention
+			-	Squeeze the spatial branch feature maps and excite the query branch (add to their feature maps)
+	-	(Texture ---> Query)
+		-	Weight-sharing
+	-	(Support masks ---> Query segmentation)
+		-	Similarity between support images features and query images features
+			-	Use similarity as weight as an attention weight for the query features
+-
 
 
 # Simple CRF + Geodesic Distance (2022)
@@ -1312,6 +1348,45 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 		-	How they learn from user interactions
 		-	How active learning is employed to shorten annotation time
 	-	Scribble-based methods are 12.5x faster than paint brush methods and 6.25x times faster than contour-based methods
+
+# ECONet (2022)
+
+## Motivation
+-	Lung lesions from COVID-19 CT images have large inter-patient variations, with some pathologies having similar visual appearance as healthy lung tissues
+	-	Challenging for existing semi-automatic interactive segmentation techniques
+	-	Similar appearance features would cause ambiguities in classical interactive segmentation approaches
+-	Large amount of CT volumes from COVID-19 patients
+	-	Not labelled
+
+## Related Work
+-	GC, GrabCut, GeoS, ORF, DynaORF fail to model ambiguous cases
+	-	Object intensity is similar to the background
+-	MIDeepSeg, DeepCut, DeepIGeoS
+	-	Consist of large networks that require offline pre-training
+	-	Due to the number of parameters, the networks cannot quickly adapt (online learning)
+	-	BIFSeg has image-specific fine-tuning but is limited for on-the-fly
+
+## Method
+-	Online learning CNNs while annotator provides scribble interactions
+-	Learning only from samples labelled through user-interactions (scribbles)
+-	Patch-based approach
+	-	Only patches extracted from scribble-labelled voxels are used
+	-	Patches are sampled around each user-labelled voxel with size KxKxK
+	-	During inference, the model is tranformed into an FCN and is applied to the whole CT volume
+-	Weighted cross-entropy loss
+	-	Address class imbalance from user-interactions
+	-	Weights of positive and negative samples is multiplied by the fraction of the given scribbles
+-	SOTA on COVID-19 lesion segmentation - label annotation (compared to other online models)
+	-	GC, Grabcut, DynaORF
+-	Model
+	-	Single conv layer and three FC layers
+-	![](../images/ECONet.png)
+
+## Results
+-	Synthetic Scribbler (same as DeepIGeoS) is used to compare to other online approaches
+
+
+
 
 
 
