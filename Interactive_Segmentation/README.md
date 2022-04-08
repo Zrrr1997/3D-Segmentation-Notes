@@ -398,7 +398,7 @@
 # DeepCut (2017) - Extension of GrabCut (2004)
 
 ## Method
--	Train NN from bounding box annotations
+-	Train NN from **bounding box annotations**
 -	Problem formulated as an energy minimization problem over a densely-connected CRF
 -	Advantage of using bounding boxes vs. scribbles/pixels
 	-	Allows to spatially contrain the problem
@@ -412,6 +412,9 @@
 -	NLL of the output probabiities constitute the unary term
 -	Binary term is simply taken from the Krähenbühl paper
 -	CNN in this paper is trained on **binary segmentation**
+	-	Labels for foreground and background are obtained by extending the gt bounding box via an offset (halo-box)
+	-	CRF is used for multiple iterations to refine the predictions of the CNN
+		-	Weakly-supervised pseudo-labels from the CRF
 -	![](../images/deepcut.png)
 
 # PolygonRNN (2017) 
@@ -809,6 +812,43 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 		-	A pixel is sampled from the largest cluster 
 			-	With the maximum distance to the cluster boundary and the maximum distance to all other clicks in the cluster (if there are any)
 	-	
+# Learning to segment using scribbles (2018)
+
+## Motivation
+-	First pixel-wise segmentation model for medical imaging, trained on scribbles only
+
+## Related Work
+-	Scribbles are more user friendly than bounding boxes
+	-	May be better suited for nester structures
+	-	Require only a fraction of the annotation time compared to pixel-wise labels
+
+## Method
+-	Training strategies to learn pixel-wise segmentation using scribbles alone
+-	![](../images/learn-scribbles.png)
+-	Steps:
+	-	Repeated estimation of the DNN parameters and subsequent relabeling of the training dataset with a CRF
+		-	Dense CRF
+		-	RNN-CRF
+-	Generation of seed areas
+	-	Random Walker is used to generate constant labels during training
+	-	Only pixels with extemely high probabilities are chosen
+-	Network is trained with Expectation maximization
+	-	M-step - optimize network parameters given labels
+	-	E-step - optimize labels for next iteration (usually 3 iterations are enough)
+		-	E-step can be re-written as a CRF optimization
+		-	Unary potentials over network predictions (NLL) ---> make sure network is certain
+		-	Pair potentials over all pairs of labels (RW-RW, RW-DNN_output, DNN_output-DNN_output)
+-	Alternatively with CRF-RNN
+	-	Directly compute the labels with a forward pass instead of an EM
+-	Uncertainty estimation through 50 forward passes with dropout
+	-	If the label is too uncertain (computed with Welch's t-test) then it is not used for this recursion step
+## Results
+-	Recursion and Dropout uncertainty led to the largest improvement	
+	-	CRF-RNN + Uncertainty did not work, though 
+		-	Authors claim that CRF-RNN's logits exhibit an unusual distribution
+-	Training on weak labels reaches 95% of the performance of strong supervision
+
+
 
 # IFSeg (2019)
 
