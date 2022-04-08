@@ -394,6 +394,7 @@
 -	![](../images/deepmedic.png)
 -	Fully-connected CRF as a post-processing step
 
+
 # DeepCut (2017) - Extension of GrabCut (2004)
 
 ## Method
@@ -1000,6 +1001,26 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 ## Results
 -	Similar performance to DEXTR on single-object segmentation
 
+# Extreme Points Confidence Map (2019)
+
+## Related Work
+-	DEXTR shows the best performance for incorporating cues (guidance maps)
+	-	Hence, authors compare to DEXTR
+
+## Method
+-	Confidence map from extreme points tha encodes the priors derived from them
+	-	Use confidence map as a cue to train a DNN (ResNet101 + PSP)
+	-	Use model to generate pseudo-labels for a U-Net
+		-	Similar performance to training on GT data
+		-	Models trained on cues can generate reliable training data
+-	Idea: Train a model with cues and then re-use this model on unlabelled data (e.g. interactive segmentation)
+-	Guidance with extreme points is computed with the L-R and U-D extreme point line segments
+	-	Formulated as the Chebyshev and Mahalonobis distances
+## Results
+-	These cues are better than just using Gaussian maps (DEXTR)
+-	The model trained with cues can be used to generate pseudo-labels for another (similar) dataset
+	-	An automatic model can be trained on the pseudo-labels with similar performance to using GT-labelsx
+S
 
 # f-BRS (2020) - Extension of BRS
 
@@ -1023,7 +1044,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	![](../images/f-BRS.png)
 -	The idea is to find which parameters lead to an improvement when scaling and shifting the intermediate features
 -	Zoom-In 
-	-	After three clicks the segmented region is cropped 
+	-	After three clicks the segmented region is cropped 	
 		-	Only the cropped image is fed to the segmentation model for further interactions 
 
 
@@ -1276,6 +1297,54 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 		-	Similarity between support images features and query images features
 			-	Use similarity as weight as an attention weight for the query features
 -
+
+# Going to Extremes (2021) - 3D-DEXTR (2019) follow-up 
+
+## Related Work
+-	List as relevant recent works for **interactive segmentation**
+	-	Slic-Seg, UI-Net, InterCNN, DeepIGeoS, BIFSeg, Learn Scribbles (Can et al), InterCNN, Extreme Confidence (Khan), Content-Aware, CurveGCN
+
+## Method
+-	Use extreme points to train a segmentation model
+	-	Extreme points are not only used in the input channel but also in the attention gates
+-	Use efficient network (Myronenko)
+-	Initial segmentation with Random Walker
+	-	Noisy segmentation map as weak labels (question: is this the best traditional method to do this?, e.g. GrowCut, GraphCut, GrabCut, etc.)
+-	Point-based loss function
+	-	Encourage segmentation boundary to be close to the extreme points
+-	Attention mechanism
+	-	Attention U-Net mechanism
+-	![](../images/going-to-extremes.png)
+-	Steps 
+	-	Extreme point selection
+		-	Used to extract bounding box around objects (with some padding for context and error tolerance)
+			-	Cropped regions and 3D maps are used as an input to the FCN
+			-	3D Maps are also fed to the attention gates
+		-	Can be concatenated to image tensor as 3D gaussian maps
+		-	During training: Extreme points can be automatically extracted from GT masks
+		-	Point channels are not only concatenated to the input but to each decoder intermediate representation
+			-	Downsampled to match the shape
+	-	RW - segmentation from scribbles
+		-	Scribbles are given by the shortest distance on each image axis, given that the distance is measured via the gradient magnitude
+			-	Approximation of the geodesic distance
+			-	Dilated by a ball-structure with width r=2
+		-	Output probabilities from RW are used as pseudo-labels for the FCN
+	-	FCN training
+		-	Residual connections
+		-	Group normalization is better than batch normalization for small batches (e.g. 4)
+		-	Trilinear upsampling better than transposed convolution (fewer parameters, has proved to work well for medical images)
+	-	Attention (Oktay et al)
+		-	Helps the model to focus on the structures of interest
+	-	Dice Loss
+		-	Automatically scales with unbalanced labeling problems
+	-	Point loss
+		-	Use extreme points for another regularization
+			-	Points and predcition boundary are expanded with gaussians
+		-	Negative loss when boundary is aligned with points ---> more like a reward!
+	-	Regularization with RW
+		-	Erode the foreground and background predictions of the FCN
+			-	Use the eroded regions as unmarked for the RW algorithm
+
 
 
 # Simple CRF + Geodesic Distance (2022)
