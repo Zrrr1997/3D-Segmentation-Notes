@@ -1186,6 +1186,49 @@ S
 -	Increasing the number of clicks shows a large improvement for IteR-MRL
 	-	Due to the relation gain between successive predictions	
 
+# First-Click Attention (FCA-Net) (2020)
+
+## Motivation
+-	The first click in interactive segmentation contains the most information about the main body of the object.
+	-	First click can serve as a location indication and global information guidance to the object
+	-	The first click is usually very close to the center of the object.
+		-	The following clicks focus on **refinement**
+
+## Related work
+-	Clicks are more user-friendly than scribbles, because it does not require the drag process.
+
+## Method
+-	![](../images/FCA-Net.png)
+-	A simple additional module called First-Click-Attention module is added to any basic segmentation networks
+	-	In this work basic module is DeepLab v3+
+	-	Input is RGB + Pos/Neg Gaussian Guidance Maps
+-	FCA-Module
+	-	Takes RGB + Gaussian Map around first click as input
+		-	Gaussian map is set to have a 3x the variance of the rest of the clicks
+	-	Special First-Click loss to train this module 
+	-	Results show that the probability is much higher around the first click when the FCA-module is added
+-	Click-based loss function to replace the binary cross-entropy loss
+	-	Depending on how far away from the positive and negative scribbles 
+		-	Weighted binary cross entropy with weights depending on the distance to the annotated points (seeds)
+		-	With influence range (tau)
+		-	And larger influence to points closer to the scribbles 
+		-	For FCA only the first point is considered
+-	Structural integrity 
+	-	Filter out scattered regions
+	-	After final prediction - post-process
+		-	Leave only points which have an 8-connected path to a positive click
+-	Click simulations for training
+	-	The same way as in DIOS
+	-	But first positive click is the object's centroid
+
+
+## Limitations
+-	This will not work when segmenting scattered objects (multiple tumors) 
+	-	Each tumor will need a "first click"
+
+
+
+
 # MIDeepSeg (2021)
 
 ## Motivation
