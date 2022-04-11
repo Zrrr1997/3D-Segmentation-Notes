@@ -346,7 +346,7 @@
 	-	The interactive method also allows **instance segmentation** when multiple intances of the same object are present
 	-	Interactive method segments unseen classes (zero-shot learning) and generalizes better
 
-# DeepLab (2016) - First CNN scores + CRF method (non-interactive)
+# DeepLab (2015/2016) - First CNN scores + CRF method (non-interactive)
 
 ## Motivation
 -	Responses at the final layer of DCNNs are not sufficiently localized for accurate object segmentation.
@@ -1532,6 +1532,72 @@ S
 -	Synthetic Scribbler (same as DeepIGeoS) is used to compare to other online approaches
 
 
+# FocalClick (2022)
+
+## Motivation
+-	Each click has a specific target
+	-	The region containing the target requires more attention than the rest of the image
+	-	Only the RoI must be updated
+		-	Previous methods update the **whole mask**
+		-	Attention is important
+
+## Related Work
+-	Existing interactive models are not efficient enough to work on low power devices
+	-	They also perform poorly in mask refinement - cannot avoid destroying the correct part
+-	Conditional Diffusion, BRS, Latent Diversity, First click attention, Multiseg, f-BRS, DIOS
+	-	Do not use the previous mask as input (no context between interactions)
+-	Reviving iterative, 99% interactive seg **do use previous masks**
+	-	But their inference speed is poor
+	-	RITM also causes unexpected changes far away from the clicks
+
+## Method
+-	Predict and update mask in localized regions
+	-	Prediction **only** on patches which need re-calculatation
+-	Two steps
+	-	Coarse segmentation on target crop
+	-	Local refinement on focus crop
+-	Progressive merge to refine existing masks
+-	Steps (two local predictions)
+	-	Select target crop according to the existing mask
+		-	Coarse segmentation of the whole object
+		-	Target crop is resized into a low resolution for efficiency on low-power devices
+	-	Small local patch
+		-	Small region is localized from the target crop which is fed to the Refiner for extra details
+-	New task: interactive mask correction
+	-	Progressive merge
+		-	Morphological analysis of the existing masks to decide where to update the mask
+		-	So that correct part is not destroyed
+-	![](../images/focalclick.png)
+-	Pipeline
+	-	Target Crop
+		-	Minimum external box of the previous segmentation and new click and expand by x1.4
+		-	Crop and resize to a small-sized input fed to **Coarse segmentor**
+	-	Coarse Segmentation
+		-	Any segmentation network works
+		-	SegFormer/HRNet+OCR are the 2022 SOTA
+		-	Image + Two CLick Maps + Previous Masks are input
+		-	Loss: Normalized Focal Loss
+	-	Focus Crop
+		-	Difference Mask of previous mask and coarse segmentation is taken M_xor
+		-	The largest connected region containing the **last click** is taken and its bbox is used for the second crop
+		-	Again the crop is expanded by x1.4 and cropped and resized for a second input
+		-	Output logits and features of the coarse Segmentor are cropped via RoIAlign
+	-	Local refinement
+		-	Two heads
+			-	Detail Map
+			-	Boundary Map
+			-	Refined prediction is a linear interpolation between the Detail Map and the Logits from the Coarse 
+				-	Alpha depends on the boundary map
+			-	1.5x Normalized Focal Loss (higher weight than coarse)
+	-	Progressive Merge
+		-	Use the same precedure as in Focus Crop
+			-	Take the difference mask between the locally refined mask and the previous mask
+			-	Take the largest connected region in the difference mask containing last click
+			-	Expand by x1.4 and update last mask ONLY in that window
+-	Training
+	-	Simulate Target Crop by random crops
+	-	Simulate Focus Crop by random crops of GT masks with some expansion (x1.1 - x2.0)
+	-	Iterative training, same as RITM
 
 
 
