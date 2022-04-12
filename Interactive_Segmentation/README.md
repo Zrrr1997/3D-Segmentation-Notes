@@ -1059,8 +1059,35 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 ## Results
 -	These cues are better than just using Gaussian maps (DEXTR)
 -	The model trained with cues can be used to generate pseudo-labels for another (similar) dataset
-	-	An automatic model can be trained on the pseudo-labels with similar performance to using GT-labelsx
-S
+	-	An automatic model can be trained on the pseudo-labels with similar performance to using GT-labels
+
+# Large-Scale IIS (2019)
+
+## Method
+-	Large Scale annotation of OpenImages
+-	Three models
+	-	M_B : RGB + bbox for initial segmentation
+		-	Deeplabv2 ResNet101
+	-	Iterative training with M_{b+c}
+		-	Box + Corrections
+		-	Deeplabv2 ResNet101
+	-	M_r: Ranking model (decision forest)
+-	Simulated user annotators
+	-	Clicks are encoded as small binary disks
+	-	Region clicks (center of erroneous areas) are consistently better than boundary correction clicks 
+-	Authors claim that using a binary disk is better than
+	-	Gaussian heatmaps
+	-	Euclidean distance maps
+-	Iterative training is better than simply accumulating the clicks 
+	-	Correction -> New Click -> Correction -> New Click is better than
+		-	Correction -> 3 new clicks -> Correction
+-	Authors claim that there is no need for a class-specific model
+	-	A model trained on a large number of instances covering diverse categories performs essentially just as well
+-	Quality of annotation can be measured by agreement of IoU across multiple annotators
+	-	COCO had ~80% agreement, authors reach 90%
+-	Real annotators first click on largest erronous areas then proceed to finer details
+-	Number of clicks is not necessarily related to the time it takes for the annotation
+	-	4 clicks take less time than 3 clicks 
 
 # f-BRS (2020) - Extension of BRS
 
