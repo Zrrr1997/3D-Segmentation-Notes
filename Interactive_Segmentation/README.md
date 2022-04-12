@@ -1226,8 +1226,49 @@ S
 -	This will not work when segmenting scattered objects (multiple tumors) 
 	-	Each tumor will need a "first click"
 
+# Inside-Outside Guidance - IOG (2020)
+
+## Related Work
+-	DEXTR
+	-	Extreme points are cumbersome to annotate exactly
+	-	Annotation can be confusing if multiple extreme points are very close to each other, e.g. a pencil
+
+## Method
+-	User interaction in three points
+	-	One **inside** point near the object's center
+		-	The point which has the largest euclidean distance to the object's boundaries
+	-	Two **outside** points at the symmetrical bbox corner locations
+	-	Object of interest is then cropped with the relaxed bbox from the clicks
+	-	Segmentation model can be trained with gaussian hetmaps of these clicks
+-	![](../images/iog.png)
+-	DeepLab v3+'s errors mostly occur along the object's boundaries
+	-	Authors propose using a two-stage cascade architecture to mitigate this issue
+	-	Two components
+		-	CoarseNet - Feature Pyramid Network (FPN)
+			-	Progressively fuse deeper layers with low-level details via lateral connections
+			-	Additonally Pyramid Scene Parsing module (PSP) after the deepest layer
+				-	Enrich the representation with global contextual information
+		-	FineNet
+			-	Multi-scale fusion structure
+			-	Upsampling and concatenation operations on features from CoarseNet from different levels
+-	![](../images/coarse-to-fine.png)
+-	Beyond three clicks
+	-	Separate lightweight branch encodes the Gaussian Maps and adds them to the features in the bottleneck of CoarseNet
+		-	More efficient than changing the whole input 
+		-	Encoder only needs to run one forward pass
+-	Iterative training
+	-	Each new click is centered at the largest erroneous region
+-	Inside point is perturbed with a small radius (r=30) to simulated real-human interactions
+	-	Results show that there is a degradation of performance if the perturbation is not done
+	-	Due to the incosistent inputs between training and testing which confuse the model
 
 
+## Results
+-	Good generalization to other domains without fine-tuning
+	-	Street scenes, aerial imagery, medical images
+-	Can be used as a label-extraction tool for ImageNet
+-	Authors claim that Coarse-to-fine structures are more important than deeper models
+-	Adding click information in the intermediate layers of the network is more effective than adding them to the input
 
 # MIDeepSeg (2021)
 
@@ -1427,6 +1468,50 @@ S
 	-	Regularization with RW
 		-	Erode the foreground and background predictions of the FCN
 			-	Use the eroded regions as unmarked for the RW algorithm
+
+
+# UCP-Net (2021)
+
+## Motivation 
+-	An interactive segmentation model should be
+	-	High-performant 
+	-	Time-Efficient
+	-	Robust to variation in user interactions
+		-	Robust to domain or category shift 
+-	Extreme points have not been extented to iterative refinement training scheme
+
+## Related work
+-	Extreme points effectively give scale information and indicate precisely points that belong to the object
+	-	Scale information allows to crop the object implicitly
+	-	The extreme points are more reliably and consistently reproducible with robot users
+	-	However, they come with a cognitive load and are error prone for complex objects
+-	Types of guidance maps
+	-	Euclidean, Gaussian, Binary Disks, Superpixels, Multi-Focal ellipses 
+		-	Paper gives references to papers which have implemented each one of these
+	-	**No study has been conducted on analysing which of these is the best**
+		-	Potential idea for a paper!
+-	Whole image vs. bbox provided to the model
+	-	Again, related work is listed
+
+## Method
+-	Extend extreme points to generic contour clicking
+	-	No fixed number of clicks
+	-	No need for specific click location
+-	![](../images/UCP-Net.png)
+-	The number of clicks fits the complexity of the object
+	-	Avg. 2 clicks are needed on the evaluation datasets
+-	Novel training scheme for simulating user interactions
+	-	When experts label the extreme points the ratio of (max. distance, length of their first two points) is similar to a Normal distribution with mean=1, std=0.03
+		-	Interaction can be simulated following this normal distribution for selecting first pair of points
+	-	Two strategies
+		-	Geometric Strategy
+			-	Given n-1 points
+				-	Sample each next point from the GT-mask, such that it is the furthest away from the n-1 points
+			-	Aims to refine salient regions
+		-	Corrective Strategy
+			-	The furthest GT-pixel away from the prediction of the segmentation model
+-	RoI extraction using Welzl's algorithm
+	-	Expanded by x1.4 for robustness
 
 
 
