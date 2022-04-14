@@ -909,6 +909,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	DIOS and RIS-Net focus on the segmentation rather than editing the existing segmentation
 -	BIFSeg, DeepIGeoS - the prediction result of each round is fed back ino the netowrk
 	-	This may cause the network to over-fit on this channel, making it difficult for the interaction to affect existing segmentation
+-	3D Disks are more **specific editing signals** than distance transforms
 
 ## Method
 -	Two models 
