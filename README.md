@@ -12,8 +12,7 @@
 -	Sparse Labels / Limited Supervision
 	-	Partially supervised
 	-	Limited supervision
-	-	(Weakly supervised?) 
-		-	Does this imply a large dataset, but only with a small amount of labels?
+	-	Weakly supervised
 	-	Sparse annotation
 	-	Small training dataset
 	-	Scribbles
