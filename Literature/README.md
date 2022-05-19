@@ -2,6 +2,7 @@
 
 | Year | Survey |
 | --- | --- | 
+|2010 | [Learning an Interactive Segmentation System](https://dl.acm.org/doi/pdf/10.1145/1924559.1924596?casa_token=COHE1AqMhnsAAAAA:3KXE4Zp-Jbm_ELLY0be92IcR5Qs4-LgmdwfS8YTMBQj1n_XmlL6YJSqeLHzDsT77hbYcTGEoXjtyWQ)|
 |2016 | [Comparative Evaluation of Interactive Segmentation Approaches](https://www5.informatik.uni-erlangen.de/Forschung/Publikationen/2016/Amrehn16-CEO.pdf)|
 |2018 | [A brief introduction to weakly supervised learning (2018)](https://academic.oup.com/nsr/article-abstract/5/1/44/4093912)|
 |2020 | [Medical Image Segmentation Using Deep Learning: A Survey (2020)](https://arxiv.org/pdf/2009.13120.pdf)|

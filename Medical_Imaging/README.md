@@ -39,6 +39,14 @@ Relatively low - average natural radiation per year.
 # PET Scans
 TODO
 
+## MRI Scans
+## Ultrasound
+## X-Ray
+## OCT
+## EHR
+## Microscopy
+## Pathology
+
 
 
 
