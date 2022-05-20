@@ -1542,6 +1542,26 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Expanded by x1.4 for robustness
 
 
+# Generic IIS
+
+## Related Work
+-	SlicSeg, GrabCut and GeoS can only segment one structure at a time
+-	BRS, DEXTR and f-BRS exploit pre-learnt patterns and correlations to fix this
+	-	But they require vast user interaction data for training
+-	Graph Cuts, Active Contours, RW, Region-based
+	-	Not possible to correct multiple labels
+	-	Not possible to insert missing labels
+-	Deep learning methods (natural images)
+	-	Require special pre-training with user-interactions and associated images
+
+## Method
+-	Use pre-trained semantic segmentation network (on other domain data, other objects)
+-	Model the user interactions as additional test time constraints
+	-	No need to fine-tune/re-train model with user inputs (not like BRS, f-BRS)
+	-	Handle distributional shift from one modality to another
+	-	Segment new organs, even if network trained on other ones
+-	![](../images/generic_IIS.png)
+
 
 # Simple CRF + Geodesic Distance (2022)
 - Paper claims it is the first fully-connected CRF for interactive medical image segmentation. 

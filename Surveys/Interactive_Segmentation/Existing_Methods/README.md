@@ -10,9 +10,20 @@
 	-	Classify based on
 		-	User interaction type
 			-	Seed based - scribble, line, point
+				-	Boundary seeds
+					-	Intelligent scissors, live wire, Riverbed
+				-	Region seeds
+					-	GC, RW and their variants
+					-	Active contours, Region merging
 			-	ROI based - bbox, lasso
 				-	Problem: Accuracy is related to how tight the bbox is delimited (a tighter bbox is better)
-			-	Active, passive - help during inference
+				-	GrabCut and its improvements (One-Cut, Loose-Cut, Deep-Cut etc.)
+			-	Active
+				-	Help during inference
+					-	E.g. suggest uncertain regions for annotation
+					-	Ask questions
+			-	Passive
+				-	Provide scribbles and iteratively add new ones
 		-	Methodology
 			-	Contour
 			-	Graph Cut
@@ -24,6 +35,11 @@
 			-	Superpixel-wise
 			-	Hybrid
 -	![](../../images/user-inputs.png)
+
+## Other works
+-	VOS uses motion so it is an entirely different topic
+
+
 
 
 ## Contour Methods
