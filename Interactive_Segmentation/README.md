@@ -1576,6 +1576,58 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Scribbles reach the best performance of all input modalities
 
 
+# Quality-Aware Memory
+
+## Related Work
+-	Classical approaches require too much input (GraphCut, GeoS, RW)
+-	3D networks have too many parameters and computations
+
+## Motivation
+-	Explore memory-augmented NN for 3D segmentation
+	-	Memory nn augment nn with memory compotent to access past experiences
+	-	Store segmented slices in memory and later use useful representations from the memory for segmenting new slices
+
+## Method
+-	User guidance provided on only one slice
+	-	The initial segmentation is propagated bidirectionally over the entire volume
+	-	Subsequent refinement based on additional user guidance on other slices
+-	Quality assessment module to suggest the next slice based on the current segmentation quality of each slice
+-	![](../images/quality-aware-memory.png)
+-	3 steps 
+	-	Initialization (inference on one slice)
+		-	With interactive network (f_in)
+			-	Interactive network is also used to refine bad-quality slices
+	-	Propagation (update all volume)
+		-	With quality-aware memory network (f_mem)
+	-	Refinement on bad slices (radiologist choose these)
+		-	Quality assessment module to propose the slice with the worst segmentation
+-	Interactive network (f_in)
+	-	Input: Input, Segmentation mask from previous step, User guidance
+		-	Guidance as just pixels...
+	-	Architecture the same as inside-outside guidance (fine and coarse architecture)
+-	Quality-Aware Memory Netwrok (f_mem)
+	-	Learns from previously segmented from f_in slices
+	-	Stores the segmentations in an external memory
+		-	Memory cell == image + segmentation mask 
+	-	Produced with Query and Memory Encoders (implemented with ResNet50)
+		-	(key, value) for the query image - input to encoder (query image)
+		-	(key, value) for the memory cells - input to encoder (image + seg-mask)
+			-	Memory encodings are stacked together into one big tensor 
+	-	Memory Read Controller
+		-	Retrieves relevant information based on (memory + current query)
+		-	Cosine similarity between every spatial location in memory (N, W, H) with every spatial location in Query (W, H), N == number of memory cells
+		-	Read weights computed with softmax over similarities
+			-	Matching probability between spatial locations
+		-	Relevant locations in the query obtained by marginalization with the memory **value** at that 3D location and the read weights
+		-	The final feature map is concatenated with the query value
+			-	Then fed to the decoder network f_dec
+				-	Implemented with ASSP and residual refinement module
+			-	Predicts the final segmentation probality map for query I_k
+	-	Quality Assessment module (3 3x3 convs, and 3 FCs)
+		-	Simply takes the featue map of the query image and the predicted segmentation map and predicts the mIoU
+-	Scribble simulation though manual labeling
+
+
 
 # Simple CRF + Geodesic Distance (2022)
 - Paper claims it is the first fully-connected CRF for interactive medical image segmentation. 
