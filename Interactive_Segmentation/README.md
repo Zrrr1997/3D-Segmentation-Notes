@@ -1561,6 +1561,20 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Handle distributional shift from one modality to another
 	-	Segment new organs, even if network trained on other ones
 -	![](../images/generic_IIS.png)
+-	Problem is formulated as a Lagragian Optimization
+	-	Find the optimal (final-layer weights) w.r.t. posterior prediction and CE over scribbles
+		-	L1 loss added to make sure weights do not deviate too much
+-	Authors employ region growing to increase the ares of user-provided scribbles
+	-	Infect other pixels if intensities differ less than a fixed threshold **T**
+-	A non-interactive segmentation model can be fine-tuned with this method
+	-	No need to change the architecture in any way
+## Experiments
+-	Optimum number of Lagrange Iterations, number of layers to fine-tune
+	-	Point, bbox or scribble as input
+	-	Effect of scribble length
+	-	Need for region growing
+-	Scribbles reach the best performance of all input modalities
+
 
 
 # Simple CRF + Geodesic Distance (2022)
