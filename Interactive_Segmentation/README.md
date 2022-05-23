@@ -1298,6 +1298,43 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Authors claim that Coarse-to-fine structures are more important than deeper models
 -	Adding click information in the intermediate layers of the network is more effective than adding them to the input
 
+# User-Guided DA (2020)
+-	Authors are the first to use domain adaptation to drive user interaction-based segmentation
+## Motivation
+-	Combine the distribution of user interactions and mask predictions for prediction-based adversarial domain adaptation
+	-	Make sure user interactions and predicted masks agree
+-	Guide mask predictions with the UIs
+## Related Work
+-	DEXTR - extreme points are added only as a separate channel
+	-	Predicted masks might not agree with the user interactions
+-	BIFSeg, Deepcut, Scribble Alone 
+	-	Intensity-based RW and CRF regularization may not capture high-level features
+
+## Method
+-	UIs are used as anchors when guiding the mask
+-	![](../images/user-guided-DA.png)
+-	Training data consists of:
+	-	A fully supervised (pixel-labels) dataset
+	-	Semi-labeled volumes (with extreme points)
+	-	Volumes without any labels
+	-	All of the three above could be from different domains
+	-	Goal: Use exteme points to annotate all of the data
+-	2 Models (both 3D FCNs)
+	-	First one predicts the extreme points
+		-	Model is trained to predict 6 channels (for the 6 3D extreme points)
+			-	Final output is just an image summed over the 6 channels
+		-	By relying on predictions, it makes it possible to use the model for **unlabelled** data
+		-	Trained with MSE on data which has GT extreme points
+			-	Supervised dataset can deterministically find the extreme points
+	-	Second one predicts the mask
+		-	Given predicted extreme points and image (similar to DEXTR)
+		-	Trained with CE + DICE Loss
+-	User-Guided Domain Adaptation Module
+	-	Fool discriminator by predicting (extr.points, masks) pairs for the **target domain** which match the **source domain's** distribution
+		-	Adversarial loss over volumes in (partly-annotated data)
+		-	Punish discriminator if it fails to recognize the target domain
+			
+
 # MIDeepSeg (2021)
 
 ## Motivation
