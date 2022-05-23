@@ -1542,7 +1542,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Expanded by x1.4 for robustness
 
 
-# Generic IIS
+# Generic IIS (2021)
 
 ## Related Work
 -	SlicSeg, GrabCut and GeoS can only segment one structure at a time
@@ -1576,7 +1576,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Scribbles reach the best performance of all input modalities
 
 
-# Quality-Aware Memory
+# Quality-Aware Memory (2021)
 
 ## Related Work
 -	Classical approaches require too much input (GraphCut, GeoS, RW)
@@ -1627,6 +1627,27 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 		-	Simply takes the featue map of the query image and the predicted segmentation map and predicts the mIoU
 -	Scribble simulation though manual labeling
 
+
+# B-Splines for IIS (2021)
+
+## Motivation
+-	Represent CNN segmentation contour as B-splines with explicit active surfaces
+
+## Related Work
+-	DeepCut, UGIR, DEXTR, BRS require a high cognite load and understanding
+	-	User also must rely on the CNN when refining the segmentation 
+## Method
+-	3 stages
+	-	Automatic CNN segmentation
+	-	Active contour with B-Spline active surfaces 
+		-	Smooth the CNN prediction contour to be biologically plausible
+	-	Interaction with the contour in real time
+-	![](../images/b-spline.png)
+-	B-Spline contour is evolved through minimizing the Localized Yezzi Energy
+	-	depends on the average intensity of the CNN output inside and outside the contour
+	-	Contour evolves to maximize the separation between them
+-	User can draw new correction anchor points which draw the contour with an additional energy term to match the user's input
+-	NASA-TLX is used to estimate the workload of their method and UGIR
 
 
 # Simple CRF + Geodesic Distance (2022)
