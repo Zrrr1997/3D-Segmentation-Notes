@@ -849,6 +849,19 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Training on weak labels reaches 95% of the performance of strong supervision
 
 
+# Interactive Glioblastoma (2018)
+
+## Method
+-	U-Net initial segmentation
+	-	Max-flow applied to probabilities for interactive refinement as a post-processing step
+-	![](../images/interactive-glioblastoma.png)
+-	The U-Net is pre-trained on a dataset with labels
+	-	Then it is applied to a test dataset (without labels)
+	-	GC is applied to its probabilities as a post-processing step
+	-	The predictions **before** and **after** GC are combined with an element-wise product
+		-	The new predictions are used as pseudo-labels for the test dataset
+		-	The U-Net model is fine-tuned using these pseudo labels
+
 
 # IFSeg (2019)
 
