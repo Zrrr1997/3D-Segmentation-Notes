@@ -862,6 +862,37 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 		-	The new predictions are used as pseudo-labels for the test dataset
 		-	The U-Net model is fine-tuned using these pseudo labels
 
+# SeedNet (2018)
+
+## Motivation
+-	Automatic Seed Generation Technique with RL
+-	Most other methods differ from train and test user interactions
+	-	Distributional shift
+	-	Require much more sequential interactions during test time
+
+## Method
+-	When the user provides an initial Fg and Bg point the RL method generates a sequence of artificial user input points to accurately localize the object-of-interest
+-	The agent analyzes the image and current segmentation
+	-	Adds "optimal" seeds iteratively and repeats
+-	Novel reward based on IoU score
+-	![](../images/seed-net.png)
+-	Any interactive segmentation backbone can be used
+	-	Authors use RW in this paper for simplicity
+-	State of the agent consists of:
+	-	Current segmentation mask from RW
+-	Action is a position of the seed on a 20x20 grid
+	-	800 possible actions (because both Fg and Bg)
+	-	Termination after 10 actions (10 seeds)
+-	Reward is the IoU between mask and GT minus the difference of new-to-previous mask
+	-	Exponentialized to give a much higher reward to large improvements
+	-	Larger reward in Strong Fg/Bg and reduced reward if seed is in weak Fg/Bg
+	-	Negative reward if Fg/Bg seed is in Bg/Fg
+-	Agend is a DQN with
+	-	Target network 
+	-	Experience replay
+	-	Epsilon-greedy policy
+
+
 
 # IFSeg (2019)
 
