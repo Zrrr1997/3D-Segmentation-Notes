@@ -1161,6 +1161,34 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Number of clicks is not necessarily related to the time it takes for the annotation
 	-	4 clicks take less time than 3 clicks 
 
+
+# Continuous Adaptation (2020)
+## Motivation
+-	Other methods fix their models during testing
+	-	Authors use the test samples as training examples (online fine-tuning)
+	-	Allows to adapt to modality/distributional changes
+	-	Corrections directly specify the GT label
+		-	Should also be used for updates (image-specific fine-tuning)
+
+## Method
+-	Single image fine-tuning
+	-	Allow model to specialize on the object-of-interest in the single image
+	-	Model parameters are updated until ther respect the user corrections
+-	Batch of image fine-tuning
+	-	Could be used to adapt to classes not seen during training
+	-	Also good for adapting to large domain changes (i.e. change of input modality)
+	-	Model is updated iteratively
+		-	Gradient step for first image, then next etc. 
+			-	Not a single batch gradient!
+
+-	Pixel-correction loss
+	-	CE over newly annotated correction pixels by the user
+	-	Also CE with predicted mask as GT pseudo label for regularization (do not forget previous knowledge)
+	-	Memory-Aware-Synapses to make sure network weights do not change too much
+-	Simulation of user input
+	-	Test: Largest error area
+	-	Train: DIOS + ITIS
+
 # f-BRS (2020) - Extension of BRS
 
 ## Related work
@@ -1404,7 +1432,43 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Fool discriminator by predicting (extr.points, masks) pairs for the **target domain** which match the **source domain's** distribution
 		-	Adversarial loss over volumes in (partly-annotated data)
 		-	Punish discriminator if it fails to recognize the target domain
-			
+		
+# PhraseClick (2020)
+-	First method to combine phrases and clicks for interactive segmentation
+## Motivation
+-	Existing interactive segmentation models specify only the location
+	-	Do not contain information about specific attributes
+		-	What the object is, its size, the number of the objects etc.
+-	Clicks give the location, but do not fight ambiguities 
+-	Phrases do not contain precise location
+	-	"Segment the cow" - Which cow if there are multiple?
+## Related Work
+-	Authors list some methods for using language for segmentation (GuideMe etc.)
+
+## Method
+-	CNN to process the input image and clicks
+-	bi-LSTM and word2vec to encode the phrases
+-	Guided feature attention module
+	-	Integrate language and vision features together
+-	![](../images/phrase-click.png)
+-	DeepLabv3+ as vision backbone + Euclidean Distance Maps
+-	Phrases for Grabcut and Berkeley are manually annotated
+-	Attribute Feature Attention Module
+	-	Integrate clicks and phrases
+	-	Attribute clues as channel-wise attribute attention 
+	-	Visual Context Vector from global average pooling over the bottleneck embedding
+	-	Visual and Bi-directional phrase vector are concatenated
+		-	Final vector has the same number of channels as the bottleneck vision layer
+		-	Channel-wise attention
+		-	Final vector has attention weights in [-1,1]
+-	Vision branch is trained with CE
+-	Phrase branch is trained with Attribute loss
+	-	CE of whether the attribute exists in the current phrase
+## Experiments
+-	Model works even with Phrase-only inputs (50% IoU)
+-	ClickOnly is much better (78% IoU)
+-	Adding GraphCut improves the refinement and increases the IoU with 1%
+
 
 # MIDeepSeg (2021)
 
