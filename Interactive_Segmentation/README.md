@@ -892,7 +892,34 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Experience replay
 	-	Epsilon-greedy policy
 
+# Interactive Boundary Prediction (2018)
 
+## Motivation
+-	Revive boundary-based interactive segmentation (contours etc.)
+
+## Related Work
+-	Region based methods fail to segment object boundaries 
+	-	With large patterns
+	-	Low-contrast boundaries
+
+## Method
+-	FCN with user input + image predicts the **boundaries** of the object-of-interest
+	-	Boundary predcition, not mask prediction!
+	-	Predicted boundary maps can be used to extract object boundaries with a minimal path solver
+-	![](../images/interactive-boundary-prediction.png)
+-	![](../images/interactive-boundary-arch.png)
+-	Gaussian Heatmaps are created at three different scales
+	-	Smaller sigmas provide exact information about the location
+	-	Larger sigmas tend to encourage the network to learn features at larger scopes
+-	Loss Functions
+	-	Global Boundary Loss
+		-	Simple CE over only the boundary pixels 
+		-	Makes sure the network learns what a boundary of an object looks like
+	-	Local Boundary Loss
+		-	Infer using only one control point and compare around it (spatial mask)
+		-	Make sure a single input would be enough to create a good local boundary
+	-	CE for segmentation
+		-	Make sure network can differentiate between Fg and Bg
 
 # IFSeg (2019)
 
