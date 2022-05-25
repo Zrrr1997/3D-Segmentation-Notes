@@ -1469,6 +1469,28 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	ClickOnly is much better (78% IoU)
 -	Adding GraphCut improves the refinement and increases the IoU with 1%
 
+# Two-in-One IIS (2020)
+
+## Motivation
+-	Boundary clicks are much more effective than region (center) clicks at corrections
+-	Instead of positive/negative clicks
+	-	Add boundary clicks which provide more information about delineating the object-of-interest that center clicks
+
+## Method
+-	Two networks
+	-	One for intial segmentation using the center-click of the object
+		-	With boundary-aware CE
+			-	Only loss for pixels near the boundary and a higher loss for pixel on the end of the halo
+	-	Another for the refinement with **boundary clicks**
+	-	Feature representations are shared across the two networks to save space and inference time
+	-	Separating the tasks allows the networks to specialize on their own task and reach SoTA	
+-	![](../images/two-in-one.png)
+-	Gaussian Heatmaps as Guidance
+-	The image is cropped based on the initial prediction 
+	-	Refinement boundary clicks are determined from the crops
+	-	Refinement clicks can be added iteratively
+-	Boundary-aware CE enforces spatially coherent segmentations
+
 
 # MIDeepSeg (2021)
 
