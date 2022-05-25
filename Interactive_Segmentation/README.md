@@ -1535,6 +1535,33 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	Boundary-aware CE enforces spatially coherent segmentations
 
 
+# EdgeFlow (2021)
+
+## Related Work
+-	Continuous Adaptation, BRS, f-BRS
+	-	Require extra post-processing, which is time consuming
+-	RITM, FCA
+	-	Clicks are at the input level ---> the semantic information would be diluted in the early layers
+	-	Relation of consecutive click is not modelled
+-	User clicks features 
+	-	Embedded in early and late fusion layers
+-	Iterative training
+	-	Edge mask from previous clicks is taken as an input with the current click
+	-	Whole mask is too unstable (ITIS)
+-	CoarseNet
+	-	HRNet-18 and OCRNet
+	-	Input: Image, Guidance Maps, and Edge Mask
+	-	Output: EdgeMask
+-	FineNet
+	-	Just 3 atrous convolutions
+	-	Input: Output of CoarseNet, Image, and Guidance
+-	Guidance as Disks
+	-	Inspired by Large-Scale IIS and RITM	
+-	Authors claim that separate branches for interations and images are better than early fusion
+	-	Otherwise the spatial location features get diluted
+	-	Also multi-stage fusion helps propagate location infromation at different stages in the networ
+-	![](../images/edgeflow.png)
+
 # MIDeepSeg (2021)
 
 ## Motivation
