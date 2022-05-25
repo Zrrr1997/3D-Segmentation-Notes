@@ -1162,6 +1162,49 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	4 clicks take less time than 3 clicks 
 
 
+# MultiSeg (2019)
+
+## Motivation
+-	Introduce the concept of "scale-diversity"
+	-	Scale prior to characterize the segmentation of a concrete scale 
+	-	Useful when segmenting a part of an object or multiple objects
+		-	E.g. local part of object (bouquette in a bride)
+	-	Two-dimensional scale prior
+
+## Related Work
+-	Latent diversity shows that different segmentation modes improve the performance
+	-	However, there is no control over the multiple candidates (in this case scale)
+	-	Results are diverse, but not meaningful/interpretable
+
+
+## Method
+-	Produces a **set of scale-varying** segmentations w.r.t. user input
+	-	Multiple branches, each with a different HxW-scale
+-	Scale is defined based on different aspect ratios (H x W)
+-	![](../images/MultiSeg.png)
+-	NMS is applied to all the segmentation branches with N=3
+	-	Recommendations to the user
+-	Graph Cut as post-processing to the network predictions
+-	Guidance as truncated Euclidean Distance maps
+-	Backbone is DeepLabv3+ extended with scale-diversity heads
+	-	M output channels
+	-	Global average pooling after encoder with FC layer with M outputs
+		-	Classification of whether a certain scale is present in the input or not
+-	For training:
+	-	The center of the tight bbox is taken
+	-	The different scaled bboxes are overlaid the GT mask
+		-	If IoU in the box is >0.5 ---> the scale branch for this bbox receives an update!
+		-	Else ---> scale does not fit this object	
+-	Simulating different scales
+	-	A hierarchical list of object combination is formed
+		-	Object a has neighbours b,c,d
+		-	List would be {a, (a,b), (a,c)....(a,b,d)....}
+		-	Sample K random combinations and use them as GT to simulate object co-occurence at different scales
+			-	E.g. person sitting in a chaid, two people together etc.
+-	DIOS robot user but over the hierarchical combinations
+
+
+
 # Continuous Adaptation (2020)
 ## Motivation
 -	Other methods fix their models during testing
