@@ -1,7 +1,14 @@
 # General 3D Segmentation Models
 
-# nnU-Net (2018)
+# PHNN (2017)
 
+## Related Work
+-	Leading PLS approaches rely on prior 3D shape or anatomical landmarks
+	-	Top-down approaches
+	-	Pro: helps delineate regions hard to discriminate solely based on intensity features
+	-	Con: large abnormalities are a severe challenge
+
+# nnU-Net (2018)
 
 ## Motivation
 -	Exact architecture, pre-processing, training, inference cause U-Net to underperform
@@ -23,8 +30,20 @@
 		-	Median shape of images
 		-	Intensity distribution
 		-	Image Modality
-	-	Resampling, Re-shape, Patch size, Batch size, etc.
+	-	Resampling, Re-shape, Patch size, Batch size, GPU-memory limit
+	-	Implemented via **heuristic**
+		-	Follow certain rules until all parameters are fixed
+		-	Makes it possible to prioritize different parameters
+			-	E.g. patch size vs. batch size
+-	Empirical Parameters
+	-	Postprocessing
+		-	Suppressiion of non-maximum components (exclude small structures)
+	-	Ensembling
 -	Cropp to nonzero regions
 -	CT- HU units are clipped to [0.5,99.5] percentiles and then z-score normalized
 -	Automatically chooses the best model architecture 
 	-	2D UNet, 3D UNet, Cascade UNet based on 5-fold cross-validation
+
+
+
+

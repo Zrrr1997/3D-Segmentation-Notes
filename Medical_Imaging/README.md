@@ -27,7 +27,7 @@ Patients might have to administer a contrast medium to make it easier to differe
 Change quantization of the brightness levels (JND is around 2%) so that structures with very close density levels can be contrasted.
 
 ## Radiation dose
-Relatively low - average natural radiation per year.
+Relatively low - average natural radiation per year. A larger radiation might incur if the resolution of the CT scan is increased.
 
 ## Application
 -	Tumor detection
@@ -37,7 +37,16 @@ Relatively low - average natural radiation per year.
 -	...
 
 # PET Scans
-TODO
+
+## Summary of Workflow
+Reveals the **metabolic** and **biochemical** function of the tissues and organs. The PET scan uses a radioactive drug (tracer) to show both the normal and abnormal metabolic activity. PET scans can often detect the abnormal metabolism of the tracer in diseases before the disease shows up on CT or MRI scans. 
+
+The tracer clusters into areas of the body with higher levels of metabolic activity and pinpoints the location of the disease. PET images are usually combined with MRI or CT.
+
+Radiating photons (gamma-radiation) is captured with the sensors for the acquisition of a 3D image.
+
+## Use Cases
+Physiological processes lead to anatomical changes in the body. Hence, PET can provice molecular-level information long before any anatomical changes have occured.
 
 ## MRI Scans
 ## Ultrasound
