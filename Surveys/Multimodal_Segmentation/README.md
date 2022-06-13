@@ -28,7 +28,7 @@
 -	Fusion strategy-levels
 	-	Input
 		-	Channelwise concatenation
--	![](../../input_level_fusion.png) 
+-	![](../../images/input_level_fusion.png) 
 	-	Layer 
 	-	Decision
 -	Data post-processing
