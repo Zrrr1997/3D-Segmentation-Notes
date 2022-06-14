@@ -1914,6 +1914,23 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 -	NASA-TLX is used to estimate the workload of their method and UGIR
 
 
+# Conditional Diffusion (2021)
+
+## Method
+-	Propagation of clicks to conditioned destinations with two level of affinities
+	-	Feature Diffusion Module
+		-	Clicks -> Target Regions with global similarity
+		-	Propagates features in full-image with a global perspective
+		-	Unlabeled regions can be better represented via matching labeled templates
+			-	Modelled with self-attention
+	-	Pixel Diffusion Module
+		-	Diffuses the predicted logits of clicks withing locally connected regions
+		-	Based on the color similarity of local regions
+		-	Used only during inference
+-	
+
+
+
 # Simple CRF + Geodesic Distance (2022)
 - Paper claims it is the first fully-connected CRF for interactive medical image segmentation. 
 
