@@ -2143,14 +2143,55 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Simulate Focus Crop by random crops of GT masks with some expansion (x1.1 - x2.0)
 	-	Iterative training, same as RITM
 
+# FocusCut (2022)
 
 
+## Motivation
+-	Global views of clicks (whole image) makes the model lose focus from later clicks
+	-	Subsequent clicks focus on **refinement of local areas**
+	-	Focusing on the whole image weakens the corrective effect of new clicks
 
-		
 
-
-
-
+## Method
+-	Global prediction 
+	-	Followed by click-centered crops with adaptive scopes
+		-	Adaptation depends on the variation in the global view
+	-	Same network is used for the local refinement
+-	Model
+	-	Input is image + pos + neg clicks + previous mask prediction
+	-	Focus Click
+		-	Introduced from the second click on
+		-	From the second click onward:
+			-	The difference between current and previous prediction is calculated (over global image)
+				-	If the difference is large enough --> apply focus view
+				-	Scope is calculated based on this difference
+			-	Local prediction is pasted on top of global one (with prediction averaging)
+-	![](../images/focuscut.png)
+-	Patch simulation
+	-	Random point on object boundary (+ some random offset) as patch center
+		-	Random point + beta * r 
+			-	Beta is sampled from [-0.3, 0.3]
+			-	r is the focus scope
+	-	Focus scope r = alpha * k (k is the number of GT pixels of the object)
+		-	Alpha is sampled from [0.2, 0.8]
+	-	0 to 3 more clicks (pos or negative) are simulated in random location in the patch to enhance details
+-	Focus scope during inference
+	-	If the current and previous masks differ at the new click dP = (P - P')
+		-	The area around the click is flooded in the difference mask dP
+			-	If the flood area < 0.2 * P then we do a focus view
+			-	r = maximum distance to the difference mask border
+	-	If they dont differ at point p (interior point)
+		-	r = distance to the closest point with a different prediction to p in P
+	-	In both cases r := 1.75 * r
+-	Iterative patch refinement
+	-	For three iterations
+	-	The current patch prediction is used as an additional input to the model
+		-	The difference betwen current and prev is used to generate a diff. mask dP
+		-	The diff mask is eroded with 2 random pixels
+		-	If the mask has any pixels
+			-	r = largest distance from focus point to any point in dP
+			-	r := 1.1 * r
+			-	Update mask and crop again with new r
 
 
 
