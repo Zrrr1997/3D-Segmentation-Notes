@@ -1981,7 +1981,7 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 	-	Or any long and thin linear structures
 -	![](../images/crf-geodesic.png)
 
-
+1
 # MONAI Label (2022)
 
 ## Aim
@@ -2193,9 +2193,35 @@ BIF - **B**ounding Box and **I**mage-Specific **F**ine-Tuning
 			-	r := 1.1 * r
 			-	Update mask and crop again with new r
 
+# i3Deep (2022)
 
+## Motivation
+-	Interactive segmentation models are not really interactive if they take too much time or are not accurate enought
+	-	Move the segmentation process to an offline setting 
+		-	Benefit from more complex models which take more time
 
+## Related Work
+-	Slow interactive methods
+	-	Bredell: Iterative interaction training
+	-	Wdtiseg
+	-	DeepEdit
 
+## Method
+-	Two models
+	-	Presegmentation nnUNet
+	-	Generate initial segmentations and their uncertainty
+		-	Use uncertainty to suggest slice to an expert
+	-	Refinement nnUNet
+		-	Use expert annotations and presegmentation to refine the segmentation results
+-	Refinement nnUNet training
+	-	Slices of the ground truth are randomly chosen
+	-	All other slices in the volume are set to 0
+	-	This volume is concatenated to the original image volume and used as training
+-	![](../images/i3deep.png)
+-	Interactive segmentation is particularly good at domain adaptation
+	-	Refinement on the target domain can be explicitly achieved through human interaction
+-	Authors compare MC Dropout, Ensembles and TTA as uncertainty estimates
+	-	All uncertainty predictors are viable methods with similar results
 
 
 

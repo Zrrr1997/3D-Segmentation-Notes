@@ -87,6 +87,8 @@
 | [(2022): ECONet: Efficient Convolutional Online Likelihood Network for Scribble-based Interactive Segmentation](https://arxiv.org/pdf/2201.04584.pdf) | :heavy_check_mark: | :heavy_check_mark:  | scribbles-labels | scribbles given by user | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |  | MIDL (2022) | [code](https://github.com/masadcv/ECONet-MONAILabel) |
 | [(2022): FocalClick: Towards Practical Interactive Image Segmentation](https://arxiv.org/pdf/2204.02574v1.pdf) | :heavy_check_mark:  |  | pixel-wise labels | COCO + LVIS | | :heavy_check_mark: |  | :heavy_check_mark: |  | CVPR (2022) | [code](https://github.com/XavierCHEN34/ClickSEG) |
 | [(2022): FocusCut: Diving into a Focus View in Interactive Segmentation](https://openaccess.thecvf.com/content/CVPR2022/papers/Lin_FocusCut_Diving_Into_a_Focus_View_in_Interactive_Segmentation_CVPR_2022_paper.pdf) | :heavy_check_mark: |  | pixelwise labels | SBD |  |  |   | :heavy_check_mark: |  | CVPR 2022 |  |
+| [(2022): i3Deep: Efficient 3D interactive segmentation with the nnU-Net ](https://openreview.net/pdf?id=R420Pr5vUj3) | :heavy_check_mark: | :heavy_check_mark: | pixel-wise labels | MSD, COVID-19 | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  | MIDL 2022 | [code](https://github.com/Karol-G/i3Deep) |
+
 
 
 
